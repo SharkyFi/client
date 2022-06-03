@@ -1,0 +1,14 @@
+{
+  "name": "client-docs",
+  "version": "2.0.0-beta",
+  "description": "Documentation for the @sharkyfi/client package",
+  "repository": "https://github.com/SharkyFi/client",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "@sharkyfi/client": "^2.0.0-beta",
+    "@solana/web3.js": "^1.43.4",
+    "commander": "^9.3.0",
+    "node-fetch": "^2",
+    "pretty-ms": "^7.0.1"
+  }
+}

@@ -1,0 +1,20 @@
+.DS_Store
+
+*.code-workspace
+
+*.log
+
+# Typescript incremental build file
+tsconfig.tsbuildinfo
+
+**/node_modules
+.parcel-cache
+
+# yarn 3+ (non-pnp)
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
