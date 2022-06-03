@@ -89,10 +89,10 @@
     bn.js "^5.1.2"
     buffer-layout "^1.2.0"
 
-"@sharkyfi/client@^2.0.0-beta":
-  version "2.0.0-beta"
-  resolved "https://registry.yarnpkg.com/@sharkyfi/client/-/client-2.0.0-beta.tgz#00f185e51b0d3dba98f7604873f5381e3f45b6c3"
-  integrity sha512-aYk+xipxftPjiEKyycdyune8VvPwoGAWTH7USNQwH/r9ddxfkt5vjoT39Ju6gKoNaLzGTJY8BpveMxKcdge54Q==
+"@sharkyfi/client@^2.0.1-beta":
+  version "2.0.1-beta"
+  resolved "https://registry.yarnpkg.com/@sharkyfi/client/-/client-2.0.1-beta.tgz#59fa410be2aed496bec297c7632a97b9a937706d"
+  integrity sha512-0Z6Sv9zYllgso1t3/JxudHOSfX69luF1nvZziHLFTfemisThLNHTf+KfaqzKE/T7bQ7p+Zzx0XeKmOHCi5toYA==
   dependencies:
     "@cardinal/token-manager" "~1.1.0"
     "@project-serum/anchor" "0.22.1"
