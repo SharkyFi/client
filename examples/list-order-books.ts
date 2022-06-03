@@ -1,4 +1,8 @@
-import { createSharkyClient, OrderBook } from '@sharkyfi/client'
+import {
+  createSharkyClient,
+  enabledOrderBooks,
+  OrderBook,
+} from '@sharkyfi/client'
 import { Command } from 'commander'
 import fetch from 'node-fetch'
 import { createProvider } from './lib/createProvider'
@@ -37,7 +41,10 @@ async function main() {
         nftListPubKeyToNameMap[
           ob.orderBookType.nftList!.listAccount.toString()
         ],
-        ob.pubKey.toString(),
+        {
+          pubkey: ob.pubKey.toString(),
+          enabled: enabledOrderBooks.includes(ob.pubKey.toString()),
+        },
       ])
       .sort((a, b) => (a[0] < b[0] ? -1 : 1))
   )
