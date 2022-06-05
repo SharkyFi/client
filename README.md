@@ -19,24 +19,24 @@ To run the scripts, run `yarn` or `npm install`.
 
 Get the current list of orderbooks (name and pubkey):
 
-```
+```bash
 npx ts-node examples/get-orderbooks.ts --wallet-path ~/.config/solana/id.json
 ```
 
 Place a loan offer on an orderbook:
 
-```
+```bash
 npx ts-node examples/place-offer.ts --wallet-path ~/.config/solana/id.json --order-book <order-book-pubkey> --amount-sol 1
 ```
 
 List your current offers:
 
-```
+```bash
 npx ts-node examples/list-offers.ts --wallet-path ~/.config/solana/id.json
 ```
 
 Revoke an offer:
 
-```
+```bash
 npx ts-node examples/revoke-offer.ts --wallet-path ~/.config/solana/id.json --loan <loan-pubkey>
 ```
