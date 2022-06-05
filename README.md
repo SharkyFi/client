@@ -7,11 +7,21 @@
 <h1 align="center">@sharkyfi/client</h1>
 
 
-This repo gives examples for how to use the [@sharkyfi/client](https://www.npmjs.com/package/@sharkyfi/client) library to interact with the [Sharky](https://sharky.fi) solana program.
+This repo gives examples for how to use the [@sharkyfi/client](https://www.npmjs.com/package/@sharkyfi/client) library to interact with the [Sharky](https://sharky.fi) solana program. It doesn't yet contain the client's code, because we use monorepo and publish package from there. But eventually the client's code will be migrated.
 
 The `examples` directory contains scripts that provide a reference for performing automated lending actions. You can copy-paste code from there into your own code, or run the scripts directly.
 
 Keep in mind that this repo and the Sharky library are licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
+# How to use the package
+
+The recommended way is to fork this repo and use examples as a starting point for your scripting.
+
+The more custom alternative is to run:
+```
+npm install @sharkyfi/client
+```
+And write your own scripts from scratch.
 
 
 ## Examples
