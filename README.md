@@ -1,4 +1,11 @@
-# @sharkyfi/client
+
+<p align="center">
+  <img width="auto" height="150" src="https://user-images.githubusercontent.com/377261/172073343-4b84d462-1f04-465d-9c93-cdba5b5dcdf3.png">
+</p>
+
+
+<h1 align="center">@sharkyfi/client</h1>
+
 
 This repo gives examples for how to use the [@sharkyfi/client](https://www.npmjs.com/package/@sharkyfi/client) library to interact with the [Sharky](https://sharky.fi) solana program.
 
@@ -6,7 +13,9 @@ The `examples` directory contains scripts that provide a reference for performin
 
 Keep in mind that this repo and the Sharky library are licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
-To run the scripts, run `yarn` or `npm install`, then:
+
+## Examples
+To run the scripts, run `yarn` or `npm install`.
 
 Get the current list of orderbooks (name and pubkey):
 
