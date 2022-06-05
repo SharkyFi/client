@@ -13,7 +13,7 @@ The `examples` directory contains scripts that provide a reference for performin
 
 Keep in mind that this repo and the Sharky library are licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
-# How to use the package
+## How to use the package
 
 The recommended way is to fork this repo and use examples as a starting point for your scripting.
 
