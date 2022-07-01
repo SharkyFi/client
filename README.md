@@ -49,3 +49,22 @@ Revoke an offer:
 ```bash
 npx ts-node examples/revoke-offer.ts --wallet-path ~/.config/solana/id.json --loan <loan-pubkey>
 ```
+
+## Gotchas / things to know about how our data is structured
+
+### APR and APY
+
+We originally named a property on loans and orderbooks "APY" when actually using it mathematically as APR. We've corrected this on the frontend, but in the data structure that is returned from the chain data, `orderBook.apy.fixed?.apy` is actually APR, as is `loan.data.loanState.taken?.taken.apy.fixed!.apy`.
+
+Additionally, those are stored as millpercents — thousandths of a percent, to allow for higher precision while being stored as integers.
+
+To get regular APR and APY as percents from the values we store on chain:
+
+```
+// for orderbooks:
+const apr = orderBook.apy.fixed!.apy / 1000
+// or for taken loans:
+const apr = loan.data.loanState.taken?.taken.apy.fixed!.apy / 1000
+
+const apy = 100 * (Math.exp(apr / 100) - 1)
+```
