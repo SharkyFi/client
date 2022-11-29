@@ -6,7 +6,7 @@ import { createSharkyClient } from '@sharkyfi/client'
 export function createProvider(walletPath) {
   // Set up the sharky client
   process.env.ANCHOR_WALLET = walletPath
-  process.env.ANCHOR_PROVIDER_URL = 'https://ssc-dao.genesysgo.net/'
+  process.env.ANCHOR_PROVIDER_URL = 'https://api.mainnet-beta.solana.com'
   const provider = Provider.env()
   // @ts-ignore // This is the only way to set this parameter when using .env()
   provider.connection._confirmTransactionInitialTimeout = 180_000
