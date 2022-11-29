@@ -3,7 +3,7 @@ import { Command } from 'commander'
 import { createProvider } from './lib/createProvider'
 
 // Usage
-// npx ts-node examples/get-history-loans.ts --wallet-path ~/.config/solana/id.json --loan <pubkey>
+// npx ts-node examples/get-history-loans.ts --wallet-path ~/.config/solana/id.json
 
 // If you don't want to use the client library, you can also just request the page directly and combine the paginated results yourself (each page may overlap in the case of duplicate dateOffered fields)
 // https://sharky-git-phoenix-shark-971-expose-history-dat-aeb0a2-sharkyfi.vercel.app/api/loan-history/all?network=mainnet&deployEnvironment=production&before=<nothing or last date from the previous page>

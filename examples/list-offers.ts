@@ -39,7 +39,9 @@ async function main() {
     myOpenOffers.map((loan: OfferedLoan) => ({
       loan: loan.pubKey.toString(),
       orderBook: loan.data.orderBook.toString(),
-      amountSol: (loan.data.principalLamports / LAMPORTS_PER_SOL).toFixed(2),
+      amountSol: (
+        loan.data.principalLamports.toNumber() / LAMPORTS_PER_SOL
+      ).toFixed(2),
     }))
   )
   console.log('Active loans:')
@@ -47,11 +49,13 @@ async function main() {
     myActiveLoans.map((loan: TakenLoan) => ({
       loan: loan.pubKey.toString(),
       orderBook: loan.data.orderBook.toString(),
-      amountSol: (loan.data.principalLamports / LAMPORTS_PER_SOL).toFixed(2),
+      amountSol: (
+        loan.data.principalLamports.toNumber() / LAMPORTS_PER_SOL
+      ).toFixed(2),
       borrower: loan.data.loanState.taken.taken.borrowerNoteMint.toString(),
       nftCollateralMint:
         loan.data.loanState.taken.taken.nftCollateralMint.toString(),
-      isForeclosable: loan.isForeclosable(),
+      isForeclosable: loan.isForeclosable('mainnet'), // Soft grace period differs on devnet
     }))
   )
 }

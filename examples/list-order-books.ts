@@ -8,7 +8,7 @@ import fetch from 'node-fetch'
 import { createProvider } from './lib/createProvider'
 
 // Usage
-// npx ts-node examples/get-order-books.ts --wallet-path ~/.config/solana/id.json --order-book <order-book-pubkey>
+// npx ts-node examples/list-order-books.ts --wallet-path ~/.config/solana/id.json
 // You can get the list of orderbook pubkeys from get-orderbooks.ts
 
 async function main() {
@@ -24,9 +24,7 @@ async function main() {
 
   // Fetch and log the current orderbooks
   const orderBooks = await sharkyClient.fetchAllOrderBooks({ program })
-  const collectionNames = (await fetch(
-    'https://sharky.fi/api/nft-list/names'
-  ).then((res) => res.json())) as { pubKey: string; collectionName: string }[]
+  const collectionNames = await sharkyClient.fetchAllNftLists({ program })
 
   const nftListPubKeyToNameMap = Object.fromEntries(
     collectionNames.map(({ pubKey, collectionName }) => [

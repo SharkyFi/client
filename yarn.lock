@@ -89,10 +89,10 @@
     bn.js "^5.1.2"
     buffer-layout "^1.2.0"
 
-"@sharkyfi/client@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@sharkyfi/client/-/client-2.0.3.tgz#5db4654d7b9f57b04eba2aa85f09f5e4c5ee5f48"
-  integrity sha512-4O9aOPhXg85azRQrrnJ0iEs6gsYEP2Mx98AtadozcKb2KIF+cAgN8q+zQvWq1Qsuy5t0tnlIYCInfRJlANZLjA==
+"@sharkyfi/client@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@sharkyfi/client/-/client-3.0.1.tgz#b642ace53b8f8c2488f1d77daf0b75c7addfdf10"
+  integrity sha512-KZGQxHPNqiYPPEZaHYzGqnzio1XxuPQc0IOD3HPtJ51pb6I7YzNNte1OFyjvE7+oBqSp5Q1D3/ukjqP1tM9Beg==
   dependencies:
     "@cardinal/token-manager" "~1.1.0"
     "@project-serum/anchor" "0.22.1"
@@ -101,9 +101,10 @@
     "@swc/helpers" "^0.3.6"
     ky "^0.25.0"
     ky-universal "^0.8.2"
+    p-retry "^4.6.1"
     ramda "^0.28.0"
     regenerator-runtime "^0.13.9"
-    typescript "^4.6.0"
+    typescript "~4.6.0"
 
 "@solana/buffer-layout@^4.0.0":
   version "4.0.0"
@@ -216,6 +217,11 @@
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.4.tgz#cd667bcfdd025213aafb7ca5915a932590acdcdc"
   integrity sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==
+
+"@types/retry@0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.0.tgz#2b35eccfcee7d38cd72ad99232fbd58bffb3c84d"
+  integrity sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==
 
 "@types/ws@^7.4.4":
   version "7.4.7"
@@ -585,6 +591,14 @@ node-gyp-build@^4.2.0, node-gyp-build@^4.3.0:
   resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.4.0.tgz#42e99687ce87ddeaf3a10b99dc06abc11021f3f4"
   integrity sha512-amJnQCcgtRVw9SvoebO3BKGESClrfXGCUTX9hSn1OuGQTQBOZmVd0Z0OlecpuRksKvbsUqALE8jls/ErClAPuQ==
 
+p-retry@^4.6.1:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/p-retry/-/p-retry-4.6.2.tgz#9baae7184057edd4e17231cee04264106e092a16"
+  integrity sha512-312Id396EbJdvRONlngUx0NydfrIQ5lsYu0znKVUzVvArzEIt08V1qhtyESbGVd1FGX7UKtiFp5uwKZdM8wIuQ==
+  dependencies:
+    "@types/retry" "0.12.0"
+    retry "^0.13.1"
+
 pako@^2.0.3:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pako/-/pako-2.0.4.tgz#6cebc4bbb0b6c73b0d5b8d7e8476e2b2fbea576d"
@@ -623,6 +637,11 @@ regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.9:
   version "0.13.9"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
   integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
+
+retry@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/retry/-/retry-0.13.1.tgz#185b1587acf67919d63b357349e03537b2484658"
+  integrity sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==
 
 rpc-websockets@^7.4.2, rpc-websockets@^7.5.0:
   version "7.5.0"
@@ -704,10 +723,10 @@ tweetnacl@^1.0.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-1.0.3.tgz#ac0af71680458d8a6378d0d0d050ab1407d35596"
   integrity sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==
 
-typescript@^4.6.0:
-  version "4.7.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.2.tgz#1f9aa2ceb9af87cca227813b4310fff0b51593c4"
-  integrity sha512-Mamb1iX2FDUpcTRzltPxgWMKy3fhg0TN378ylbktPGPK/99KbDtMQ4W1hwgsbPAsG3a0xKa1vmw4VKZQbkvz5A==
+typescript@~4.6.0:
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.4.tgz#caa78bbc3a59e6a5c510d35703f6a09877ce45e9"
+  integrity sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==
 
 utf-8-validate@^5.0.2:
   version "5.0.9"

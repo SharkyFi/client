@@ -42,7 +42,7 @@ async function main() {
 
   console.log(
     `Successfully revoked offer at ${options.loan} for ${(
-      loan.data.principalLamports / LAMPORTS_PER_SOL
+      loan.data.principalLamports.toNumber() / LAMPORTS_PER_SOL
     ).toFixed(2)} SOL`
   )
 }

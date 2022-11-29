@@ -37,7 +37,7 @@ async function main() {
   }
   const loan = result.taken
 
-  if (!loan.isForeclosable()) {
+  if (!loan.isForeclosable('mainnet')) {
     const currentTimestamp = new Date().getTime() / 1000
     const startTimestamp =
       loan.data.loanState.taken.taken.terms.time?.start.toNumber()
@@ -59,7 +59,7 @@ async function main() {
 
   console.log(
     `Successfully foreclosed loan at ${options.loan} (amount loaned was ${(
-      loan.data.principalLamports / LAMPORTS_PER_SOL
+      loan.data.principalLamports.toNumber() / LAMPORTS_PER_SOL
     ).toFixed(
       2
     )} SOL). You now own NFT ${loan.data.loanState.taken.taken.nftCollateralMint.toString()}.`

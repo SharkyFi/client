@@ -33,14 +33,14 @@ async function main() {
   if (!orderBook) {
     console.error(`No orderbook found with pubkey ${options.orderBook}`)
   }
-  const { loanKeypair, sig } = await orderBook.offerLoan({
+  const { offeredLoans, sig } = await orderBook.offerLoan({
     program: sharkyClient.program,
     principalLamports: options.amountSol * LAMPORTS_PER_SOL,
     onTransactionUpdate: console.dir,
   })
 
   console.log(
-    `Loan offered! Its pubkey is: ${loanKeypair.publicKey.toString()}`
+    `Loan offered! Its pubkey is: ${offeredLoans[0].pubKey.toString()}`
   )
 }
 
