@@ -1,11 +1,11 @@
 {
   "name": "client-docs",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Documentation for the @sharkyfi/client package",
   "repository": "https://github.com/SharkyFi/client",
   "license": "MIT",
   "dependencies": {
-    "@sharkyfi/client": "^3.0.1",
+    "@sharkyfi/client": "^3.0.2",
     "@solana/web3.js": "^1.43.4",
     "commander": "^9.3.0",
     "node-fetch": "^2",
