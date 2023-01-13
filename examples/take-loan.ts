@@ -44,6 +44,8 @@ async function main() {
     orderBookPubKey: loan.data.orderBook,
   })
   console.dir({ orderBook }, { depth: 10 })
+
+  // Note: NFTLists are large. You may want to save them yourself and look NFTs up in their lists from the copies you've saved. You can download all the current NftLists with fetchAllNftLists.
   console.log('Fetching nftlist')
   const nftList = await sharkyClient.fetchNftList({
     program,
