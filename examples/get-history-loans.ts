@@ -10,13 +10,22 @@ import { createProvider } from './lib/createProvider'
 
 async function main() {
   // Either use the function directly if you don't need a solana client
-  const historyLoans = await fetchAllHistoryLoans()
+  const historyLoans = await fetchAllHistoryLoans(
+    'mainnet',
+    'production',
+    'https://sharky.fi',
+    process.env.AUTH_KEY
+  )
   console.log(`Got ${historyLoans.length} historical loans`)
 
   // Or use it on the client if you already have one, for consistency
   const cli = new Command()
   const options = cli
-    .option('--wallet-path <path>', 'path to private key file')
+    .requiredOption('--wallet-path <path>', 'path to private key file')
+    .requiredOption(
+      '--api-key <string>',
+      'Sharky API key for fetching history loans'
+    )
     .parse()
     .opts()
 
@@ -24,7 +33,12 @@ async function main() {
     const provider = createProvider(options.walletPath)
     const sharkyClient = createSharkyClient(provider)
 
-    const historyLoans2 = await sharkyClient.fetchAllHistoryLoans()
+    const historyLoans2 = await sharkyClient.fetchAllHistoryLoans(
+      'mainnet',
+      'production',
+      'https://sharky.fi',
+      options.apiKey
+    )
     console.log(`Got ${historyLoans2.length} historical loans`)
   }
 }
