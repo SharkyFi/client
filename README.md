@@ -29,7 +29,7 @@ To run the scripts, run `yarn` or `npm install`, then:
 Get the current list of orderbooks (name and pubkey):
 
 ```bash
-npx ts-node examples/get-orderbooks.ts --wallet-path ~/.config/solana/id.json
+npx ts-node examples/list-order-books.ts --wallet-path ~/.config/solana/id.json
 ```
 
 Place a loan offer on an orderbook:
