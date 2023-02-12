@@ -14,26 +14,133 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cardinal/token-manager@npm:~1.1.0":
-  version: 1.1.0
-  resolution: "@cardinal/token-manager@npm:1.1.0"
+"@babel/runtime@npm:^7.17.8":
+  version: 7.20.13
+  resolution: "@babel/runtime@npm:7.20.13"
   dependencies:
-    "@metaplex-foundation/mpl-token-metadata": ^1.2.3
+    regenerator-runtime: ^0.13.11
+  checksum: 09b7a97a05c80540db6c9e4ddf8c5d2ebb06cae5caf3a87e33c33f27f8c4d49d9c67a2d72f1570e796045288fad569f98a26ceba0c4f5fad2af84b6ad855c4fb
+  languageName: node
+  linkType: hard
+
+"@cardinal/common@npm:5.0.7, @cardinal/common@npm:^5.0.2":
+  version: 5.0.7
+  resolution: "@cardinal/common@npm:5.0.7"
+  dependencies:
+    "@project-serum/anchor": ^0.25.0
     "@solana/buffer-layout": ^4.0.0
-    "@solana/spl-token": ^0.1.8
-    borsh: ^0.7.0
+    "@solana/spl-token": ^0.3.5
+    "@solana/web3.js": ^1.66.2
+    bignumber.js: ^9.1.0
+    polished: ^4.2.2
+    tslib: ^2.4.0
+  checksum: 15e7cc53e2675e2795977674195e5428b81d829c045d59af1c3f6d9afd57a28b799f95dcdc3e89cf0d1ee6722dd4f243b7083c6e168d5e1f781f4210ff6f387d
+  languageName: node
+  linkType: hard
+
+"@cardinal/common@npm:^6.1.5":
+  version: 6.1.7
+  resolution: "@cardinal/common@npm:6.1.7"
+  dependencies:
+    "@coral-xyz/anchor": ^0.26.0
+    "@solana/buffer-layout": ^4.0.0
+    "@solana/spl-token": ^0.3.5
+    "@solana/web3.js": ^1.66.2
+    bignumber.js: ^9.1.0
+    polished: ^4.2.2
+    tslib: ^2.4.0
+  checksum: 2a2aa1acf40c3482d37ddfc89bc3b246fa20170ac9b4e028d0ed878f0e8986380000bd2f6a9c6defcfd6ca5c0569a2b9c47f4bf222eccb8b78b5110267882c3e
+  languageName: node
+  linkType: hard
+
+"@cardinal/creator-standard@npm:^2.1.7":
+  version: 2.4.0
+  resolution: "@cardinal/creator-standard@npm:2.4.0"
+  dependencies:
+    "@metaplex-foundation/rustbin": ^0.3.1
+    "@metaplex-foundation/solita": ^0.12.2
+    "@project-serum/anchor": ^0.25.0
+    "@solana/spl-token": ^0.3.5
+    "@solana/web3.js": ^1.66.2
+  checksum: 1b2a346bd126bd095f50a24ec2246baea3e5321741e9e0e5af17ad578a9f6b256413550bfc972e0f8072dfebc1fcf6efb8946cb3ed811b4926f016a74096af4f
+  languageName: node
+  linkType: hard
+
+"@cardinal/payment-manager@npm:2.2.0":
+  version: 2.2.0
+  resolution: "@cardinal/payment-manager@npm:2.2.0"
+  dependencies:
+    "@cardinal/common": ^5.0.2
+    "@metaplex-foundation/mpl-token-metadata": ^2.5.2
+    "@project-serum/anchor": ^0.25.0
+    "@solana/spl-token": ^0.3.6
+    "@solana/web3.js": ^1.66.2
+  checksum: e7435dec655a41555477deae5deeddf77ea54e6974d0f982eb710585ebd36bc38674d15e4d9312674b489925b4b0416ec9948ed1783193aa40631caed9480f3a
+  languageName: node
+  linkType: hard
+
+"@cardinal/payment-manager@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@cardinal/payment-manager@npm:3.0.0"
+  dependencies:
+    "@cardinal/common": ^5.0.2
+    "@metaplex-foundation/mpl-token-metadata": ^2.5.2
+    "@project-serum/anchor": ^0.26.0
+    "@solana/spl-token": ^0.3.6
+    "@solana/web3.js": ^1.66.2
+  checksum: a11544b4ded4d9e1e3d5e0e9e2f3f3fc9db8f534d55c3680f94d19b3950ad9cc2c82ecf55ae378273253e782204f3b647ae3263af9607f79d7a83f68a7ef2e3c
+  languageName: node
+  linkType: hard
+
+"@cardinal/token-manager@npm:4.0.3-beta.1":
+  version: 4.0.3-beta.1
+  resolution: "@cardinal/token-manager@npm:4.0.3-beta.1"
+  dependencies:
+    "@cardinal/common": ^6.1.5
+    "@cardinal/creator-standard": ^2.1.7
+    "@cardinal/payment-manager": ^3.0.0
+    "@metaplex-foundation/mpl-token-auth-rules": ^1.0.0
+    "@msgpack/msgpack": ^2.8.0
+    "@project-serum/anchor": ^0.26.0
+    "@solana/spl-token": ^0.3.6
+    "@solana/web3.js": ^1.34.0
+    mplx-beta: "npm:@metaplex-foundation/mpl-token-metadata@2.8.0"
+  checksum: 21a32be10e15dd8e4c84688721a2d019361ada33a449b53d6d6de6806579907df8f7a2459d6bd1b31a7c4b47d3044840af856b9f43f5fb72c7d0017666e9d974
+  languageName: node
+  linkType: hard
+
+"@coral-xyz/anchor@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "@coral-xyz/anchor@npm:0.26.0"
+  dependencies:
+    "@coral-xyz/borsh": ^0.26.0
+    "@solana/web3.js": ^1.68.0
+    base64-js: ^1.5.1
+    bn.js: ^5.1.2
     bs58: ^4.0.1
-    tiny-invariant: ^1.2.0
-    tslib: ^2.3.1
+    buffer-layout: ^1.2.2
+    camelcase: ^6.3.0
+    cross-fetch: ^3.1.5
+    crypto-hash: ^1.3.0
+    eventemitter3: ^4.0.7
+    js-sha256: ^0.9.0
+    pako: ^2.0.3
+    snake-case: ^3.0.4
+    superstruct: ^0.15.4
+    toml: ^3.0.0
+  checksum: 1e637b28181a42ce0aa4ed2853b7c563d4763f01e330cd12572b70d5dc830956e33d19a83afba09846b265db615f8ef1dc4a67d77865418c44ca8839d375a56f
+  languageName: node
+  linkType: hard
+
+"@coral-xyz/borsh@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "@coral-xyz/borsh@npm:0.26.0"
+  dependencies:
+    bn.js: ^5.1.2
+    buffer-layout: ^1.2.0
   peerDependencies:
-    "@project-serum/anchor": ">=0.19"
-    "@saberhq/anchor-contrib": ^1.11
-    "@saberhq/solana-contrib": ^1.11
-    "@saberhq/token-utils": ^1.11
-    "@solana/web3.js": ^1
-    bn.js: ^5.2.0
-    jsbi: ^3 || ^4
-  checksum: 2986733e5758c8fad538ef28a4699952dc05235f42e27f1d670dbfc9ec59e3d66b82f8819c74be1a5800c1dab99055bc9f96a29a1e77394f132400a04bfb5ffe
+    "@solana/web3.js": ^1.68.0
+  checksum: 8418264ec64f926264adfaa9cff2323a7675b0df3b06b30043d256f1f3ed8fa68d6268f93600656a1ddcb953032ab41674f04e2387504f32d041b75fa3152a30
   languageName: node
   linkType: hard
 
@@ -104,24 +211,151 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metaplex-foundation/mpl-core@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "@metaplex-foundation/mpl-core@npm:0.0.2"
+"@metaplex-foundation/beet-solana@npm:^0.3.0":
+  version: 0.3.1
+  resolution: "@metaplex-foundation/beet-solana@npm:0.3.1"
   dependencies:
-    "@solana/web3.js": ^1.31.0
-    bs58: ^4.0.1
-  checksum: f74ad09538dbd8b567c349724310ed3ca1e3c9d7e65992ea32077294b09791cd246ab2ac0c29c0a8ed00aaccb6858dbb0fffc55e7e788da7c418f2ed094a1d9a
+    "@metaplex-foundation/beet": ">=0.1.0"
+    "@solana/web3.js": ^1.56.2
+    bs58: ^5.0.0
+    debug: ^4.3.4
+  checksum: 5405ec57c8cdb2dce016bf96f1cbd96ae185d6c764b8bdd1aaa68028e1970ad4815e7eb026a61703f57c33ddac261e47874e013bb03d84fa74ad78fce4b6e7cd
   languageName: node
   linkType: hard
 
-"@metaplex-foundation/mpl-token-metadata@npm:^1.2.3":
-  version: 1.2.5
-  resolution: "@metaplex-foundation/mpl-token-metadata@npm:1.2.5"
+"@metaplex-foundation/beet-solana@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@metaplex-foundation/beet-solana@npm:0.4.0"
   dependencies:
-    "@metaplex-foundation/mpl-core": ^0.0.2
-    "@solana/spl-token": ^0.1.8
-    "@solana/web3.js": ^1.31.0
-  checksum: 89037642dfbb2ee465e6976dd0430188eee77db6f6266e70f037abc0d8672e12f8aca47fc78ce13c20bd2832ea126c88aff599915333ed0c96e6e88e0baa9db4
+    "@metaplex-foundation/beet": ">=0.1.0"
+    "@solana/web3.js": ^1.56.2
+    bs58: ^5.0.0
+    debug: ^4.3.4
+  checksum: ee746c2d15f985c31d133d4ee29efbda445877473cc32aafa4b684ce3fa9a916ddff30d0e3cfef7654ff5725adff59a62a635c76bc781a6e1362c5b5d3137ed0
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/beet@npm:>=0.1.0, @metaplex-foundation/beet@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "@metaplex-foundation/beet@npm:0.7.1"
+  dependencies:
+    ansicolors: ^0.3.2
+    bn.js: ^5.2.0
+    debug: ^4.3.3
+  checksum: f8a330073ab1a0976478e9847c0e63e32f7bee67ea6306e1f89784e8275e30daaecba7cbc5f3424e5d96c411aa3bfbc2b638c105a90067a985acdfbd33a1a287
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/beet@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@metaplex-foundation/beet@npm:0.4.0"
+  dependencies:
+    ansicolors: ^0.3.2
+    bn.js: ^5.2.0
+    debug: ^4.3.3
+  checksum: f0cd43da9a707d88852d8b51413ab46b18b1f9fe36a80a75ec1408a2b04544785c428aee76c94d288717e8a6ed3dfc0f3989f1eb206e4e441574cc0a573149d3
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/cusper@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "@metaplex-foundation/cusper@npm:0.0.2"
+  checksum: d157953baf42a2a012cdeb809c1785f29a44d80a3b5a3841c930baeb12ac6ddcf37f1a15eded4dce20d66f7bc8f23bedb87e905758df721e274bfcd816e70ba1
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/mpl-token-auth-rules@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@metaplex-foundation/mpl-token-auth-rules@npm:1.0.0"
+  dependencies:
+    "@metaplex-foundation/beet": ^0.7.1
+    "@metaplex-foundation/beet-solana": ^0.4.0
+    "@metaplex-foundation/cusper": ^0.0.2
+    "@solana/spl-token": ^0.3.6
+    "@solana/web3.js": ^1.66.2
+  checksum: 2ace29795b445a91086ea54a1e1ed66ffcba09903e39353e675b8337a06474ee9cce2c31d5c7ff14b0e82862651710b6e4e45511b708517970dfede18a3bd5fd
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/mpl-token-auth-rules@npm:^1.0.0":
+  version: 1.2.0
+  resolution: "@metaplex-foundation/mpl-token-auth-rules@npm:1.2.0"
+  dependencies:
+    "@metaplex-foundation/beet": ^0.7.1
+    "@metaplex-foundation/beet-solana": ^0.4.0
+    "@metaplex-foundation/cusper": ^0.0.2
+    "@solana/spl-token": ^0.3.6
+    "@solana/web3.js": ^1.66.2
+  checksum: 9e6a82b4074079d57ad1a7de430dd70169871a83d814eefddac4507b1e4d425f70086d689c09a05752a4ef0a36d7d1fcdc6daa554f66ad72c0b6e0f161af38c8
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/mpl-token-metadata@npm:2.8.0, mplx-beta@npm:@metaplex-foundation/mpl-token-metadata@2.8.0":
+  version: 2.8.0
+  resolution: "@metaplex-foundation/mpl-token-metadata@npm:2.8.0"
+  dependencies:
+    "@metaplex-foundation/beet": ^0.7.1
+    "@metaplex-foundation/beet-solana": ^0.4.0
+    "@metaplex-foundation/cusper": ^0.0.2
+    "@solana/spl-token": ^0.3.6
+    "@solana/web3.js": ^1.66.2
+    bn.js: ^5.2.0
+    debug: ^4.3.4
+  checksum: d62e3c26cef27d8bfdce7aeb18eeb2a037289adab0d57aba736853d3f6a2fcbf2f9aaabbfac602b4adb93ad72a7f19e3c77763df8a428b603fe115c9f03da498
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/mpl-token-metadata@npm:^2.5.2":
+  version: 2.8.3
+  resolution: "@metaplex-foundation/mpl-token-metadata@npm:2.8.3"
+  dependencies:
+    "@metaplex-foundation/beet": ^0.7.1
+    "@metaplex-foundation/beet-solana": ^0.4.0
+    "@metaplex-foundation/cusper": ^0.0.2
+    "@solana/spl-token": ^0.3.6
+    "@solana/web3.js": ^1.66.2
+    bn.js: ^5.2.0
+    debug: ^4.3.4
+  checksum: c926ec1cbd4f909a8010fcc149f35577cac6e69114138a295e51a9804b8383a4aa6186f786b36c52d62e6f73dc92981b3797bfe7aa326358ffe2b64638e7f08c
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/rustbin@npm:^0.3.0, @metaplex-foundation/rustbin@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@metaplex-foundation/rustbin@npm:0.3.1"
+  dependencies:
+    debug: ^4.3.3
+    semver: ^7.3.7
+    text-table: ^0.2.0
+    toml: ^3.0.0
+  checksum: 042eb8cb729e886477efa885693dadcf31722c071f8adc5a49509483d846d4d359999b9f2beff9406f4dc9fa0a0f0bdb37be4b0c68426864f9f9f60b456cc74b
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/solita@npm:^0.12.2":
+  version: 0.12.2
+  resolution: "@metaplex-foundation/solita@npm:0.12.2"
+  dependencies:
+    "@metaplex-foundation/beet": ^0.4.0
+    "@metaplex-foundation/beet-solana": ^0.3.0
+    "@metaplex-foundation/rustbin": ^0.3.0
+    "@solana/web3.js": ^1.36.0
+    camelcase: ^6.2.1
+    debug: ^4.3.3
+    js-sha256: ^0.9.0
+    prettier: ^2.5.1
+    snake-case: ^3.0.4
+    spok: ^1.4.3
+  bin:
+    solita: dist/src/cli/solita.js
+  checksum: 4545b2706e524f161b63e4ef8b779fbba1edb97a5d4c2bdbf11aa7a588ffd2453657cad5892ae5b2430c9a9ad9c3598d5a2a2945e4990b97017fd82b911fef31
+  languageName: node
+  linkType: hard
+
+"@msgpack/msgpack@npm:^2.8.0":
+  version: 2.8.0
+  resolution: "@msgpack/msgpack@npm:2.8.0"
+  checksum: bead9393f57239007a2fe455df5277cbc03b125f14f310162a652b81471dcf3ab6780eaa24b36e20aa742998910a6840147d08b7267063b8e2de5d40c624360e
   languageName: node
   linkType: hard
 
@@ -166,12 +400,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project-serum/anchor@npm:0.22.1":
-  version: 0.22.1
-  resolution: "@project-serum/anchor@npm:0.22.1"
+"@project-serum/anchor@npm:0.26.0, @project-serum/anchor@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "@project-serum/anchor@npm:0.26.0"
+  dependencies:
+    "@coral-xyz/borsh": ^0.26.0
+    "@solana/web3.js": ^1.68.0
+    base64-js: ^1.5.1
+    bn.js: ^5.1.2
+    bs58: ^4.0.1
+    buffer-layout: ^1.2.2
+    camelcase: ^6.3.0
+    cross-fetch: ^3.1.5
+    crypto-hash: ^1.3.0
+    eventemitter3: ^4.0.7
+    js-sha256: ^0.9.0
+    pako: ^2.0.3
+    snake-case: ^3.0.4
+    superstruct: ^0.15.4
+    toml: ^3.0.0
+  checksum: aa2ebd9c9643d9b7d2c0930c22ca3758cf28a9f99585731ab6e61cd265d5a67de196dc51f9a91970387d21c4737de65c914657ad4d10535539baca7aa3309f15
+  languageName: node
+  linkType: hard
+
+"@project-serum/anchor@npm:^0.25.0":
+  version: 0.25.0
+  resolution: "@project-serum/anchor@npm:0.25.0"
   dependencies:
     "@project-serum/borsh": ^0.2.5
-    "@solana/web3.js": ^1.17.0
+    "@solana/web3.js": ^1.36.0
     base64-js: ^1.5.1
     bn.js: ^5.1.2
     bs58: ^4.0.1
@@ -180,12 +437,12 @@ __metadata:
     cross-fetch: ^3.1.5
     crypto-hash: ^1.3.0
     eventemitter3: ^4.0.7
-    find: ^0.3.0
     js-sha256: ^0.9.0
     pako: ^2.0.3
     snake-case: ^3.0.4
+    superstruct: ^0.15.4
     toml: ^3.0.0
-  checksum: d4af90220b94e7de68b74693066e03e6b0d917e8eb86d58fcb623c553b3864165c000ea83d69aa301e135569a745e4fa36a76c784473b7c05d032bae18230496
+  checksum: 38c2f463a4b698c52f6334cd991cf1cafd5c8f772811f369adb914b217f819fb3d22acb881b6ad94b49f62b738c5ac3f7a087ae5e9bb1a9c1b9485dff380d060
   languageName: node
   linkType: hard
 
@@ -201,24 +458,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sharkyfi/client@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "@sharkyfi/client@npm:3.0.4"
+"@sharkyfi/client@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@sharkyfi/client@npm:4.0.0"
   dependencies:
-    "@cardinal/token-manager": ~1.1.0
-    "@project-serum/anchor": 0.22.1
+    "@cardinal/common": 5.0.7
+    "@cardinal/payment-manager": 2.2.0
+    "@cardinal/token-manager": 4.0.3-beta.1
+    "@metaplex-foundation/mpl-token-auth-rules": 1.0.0
+    "@metaplex-foundation/mpl-token-metadata": 2.8.0
+    "@project-serum/anchor": 0.26.0
     "@solana/spl-token": ^0.1.8
     "@solana/web3.js": ^1.72.0
     "@swc/helpers": ^0.3.6
     ky: ^0.25.0
     ky-universal: ^0.8.2
+    lodash: ^4.17.21
     p-retry: ^4.6.1
     ramda: ^0.28.0
     regenerator-runtime: ^0.13.9
     typescript: ~4.6.0
   peerDependencies:
     bn.js: "*"
-  checksum: 34795678ec82aa9c0d13b7b121b7a23e79a289e4a3f30b3bd542399dbab438a8b2d1a69cfdece0e2bb00906497801332fb5a1a2dc8f664300ee6ad4c5178afe2
+  checksum: 9d9ba473e25f6c46c8b66a3d0e08cd78fc6d998bd072e6b00eae5a21d7bc22c14db7c9307daf215c09e79113b89e971d02e68223ec2b1f83543ba7a6edeae597
+  languageName: node
+  linkType: hard
+
+"@solana/buffer-layout-utils@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@solana/buffer-layout-utils@npm:0.2.0"
+  dependencies:
+    "@solana/buffer-layout": ^4.0.0
+    "@solana/web3.js": ^1.32.0
+    bigint-buffer: ^1.1.5
+    bignumber.js: ^9.0.1
+  checksum: 9284242245b18b49577195ba7548263850be865a4a2d183944fa01bb76382039db589aab8473698e9bb734b515ada9b4d70db0a72e341c5d567c59b83d6d0840
   languageName: node
   linkType: hard
 
@@ -245,7 +519,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solana/web3.js@npm:^1.17.0, @solana/web3.js@npm:^1.21.0, @solana/web3.js@npm:^1.31.0":
+"@solana/spl-token@npm:^0.3.5, @solana/spl-token@npm:^0.3.6":
+  version: 0.3.7
+  resolution: "@solana/spl-token@npm:0.3.7"
+  dependencies:
+    "@solana/buffer-layout": ^4.0.0
+    "@solana/buffer-layout-utils": ^0.2.0
+    buffer: ^6.0.3
+  peerDependencies:
+    "@solana/web3.js": ^1.47.4
+  checksum: 4452c5cb6473d0452383eb1da22ed463e5d896bf04ae91d43385b286edcb682908d6476db9f44d46fd602e335daf9c3a74f20ddfe34d6d3ac9caeddb09316d87
+  languageName: node
+  linkType: hard
+
+"@solana/web3.js@npm:^1.21.0":
   version: 1.43.4
   resolution: "@solana/web3.js@npm:1.43.4"
   dependencies:
@@ -266,6 +553,30 @@ __metadata:
     superstruct: ^0.14.2
     tweetnacl: ^1.0.0
   checksum: 0d036c8d1e234092f598ed559d6fd880d5b1916f94279ddd4209a0c2f76f2c2ef9a899ea0fad19c1e6511d259e460a80b71ac4d4401c707e719ace59803d11bb
+  languageName: node
+  linkType: hard
+
+"@solana/web3.js@npm:^1.32.0, @solana/web3.js@npm:^1.34.0, @solana/web3.js@npm:^1.36.0, @solana/web3.js@npm:^1.56.2, @solana/web3.js@npm:^1.66.2, @solana/web3.js@npm:^1.68.0":
+  version: 1.73.2
+  resolution: "@solana/web3.js@npm:1.73.2"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    "@noble/ed25519": ^1.7.0
+    "@noble/hashes": ^1.1.2
+    "@noble/secp256k1": ^1.6.3
+    "@solana/buffer-layout": ^4.0.0
+    agentkeepalive: ^4.2.1
+    bigint-buffer: ^1.1.5
+    bn.js: ^5.0.0
+    borsh: ^0.7.0
+    bs58: ^4.0.1
+    buffer: 6.0.1
+    fast-stable-stringify: ^1.0.0
+    jayson: ^3.4.4
+    node-fetch: 2
+    rpc-websockets: ^7.5.0
+    superstruct: ^0.14.2
+  checksum: 7ac6a7b4c52b7676586cc61a856ac3045413f584666e3cdff4b69daeb74cbdb8f94f764bdeffa0d0998a00f88820f098c7c1b0f728e85e2ad77d586d5a6b434e
   languageName: node
   linkType: hard
 
@@ -496,6 +807,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansicolors@npm:^0.3.2, ansicolors@npm:~0.3.2":
+  version: 0.3.2
+  resolution: "ansicolors@npm:0.3.2"
+  checksum: e84fae7ebc27ac96d9dbb57f35f078cd6dde1b7046b0f03f73dcefc9fbb1f2e82e3685d083466aded8faf038f9fa9ebb408d215282bcd7aaa301d5ac3c486815
+  languageName: node
+  linkType: hard
+
 "aproba@npm:^1.0.3 || ^2.0.0":
   version: 2.0.0
   resolution: "aproba@npm:2.0.0"
@@ -536,6 +854,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"base-x@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "base-x@npm:4.0.0"
+  checksum: b25db9e07eb1998472a20557c7f00c797dc0595f79df95155ab74274e7fa98b9f2659b3ee547ac8773666b7f69540656793aeb97ad2b1ceccdb6fa5faaf69ac0
+  languageName: node
+  linkType: hard
+
 "base64-js@npm:^1.3.1, base64-js@npm:^1.5.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
@@ -550,6 +875,13 @@ __metadata:
     bindings: ^1.3.0
     node-gyp: latest
   checksum: d010c9f57758bcdaccb435d88b483ffcc95fe8bbc6e7fb3a44fb5221f29c894ffaf4a3c5a4a530e0e7d6608203c2cde9b79ee4f2386cd6d4462d1070bc8c9f4e
+  languageName: node
+  linkType: hard
+
+"bignumber.js@npm:^9.0.1, bignumber.js@npm:^9.1.0":
+  version: 9.1.1
+  resolution: "bignumber.js@npm:9.1.1"
+  checksum: ad243b7e2f9120b112d670bb3d674128f0bd2ca1745b0a6c9df0433bd2c0252c43e6315d944c2ac07b4c639e7496b425e46842773cf89c6a2dcd4f31e5c4b11e
   languageName: node
   linkType: hard
 
@@ -622,6 +954,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bs58@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "bs58@npm:5.0.0"
+  dependencies:
+    base-x: ^4.0.0
+  checksum: 2475cb0684e07077521aac718e604a13e0f891d58cff923d437a2f7e9e28703ab39fce9f84c7c703ab369815a675f11e3bd394d38643bfe8969fbe42e6833d45
+  languageName: node
+  linkType: hard
+
 "buffer-layout@npm:^1.2.0, buffer-layout@npm:^1.2.2":
   version: 1.2.2
   resolution: "buffer-layout@npm:1.2.2"
@@ -639,7 +980,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer@npm:6.0.3, buffer@npm:~6.0.3":
+"buffer@npm:6.0.3, buffer@npm:^6.0.3, buffer@npm:~6.0.3":
   version: 6.0.3
   resolution: "buffer@npm:6.0.3"
   dependencies:
@@ -692,6 +1033,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"camelcase@npm:^6.2.1, camelcase@npm:^6.3.0":
+  version: 6.3.0
+  resolution: "camelcase@npm:6.3.0"
+  checksum: 8c96818a9076434998511251dcb2761a94817ea17dbdc37f47ac080bd088fc62c7369429a19e2178b993497132c8cbcf5cc1f44ba963e76782ba469c0474938d
+  languageName: node
+  linkType: hard
+
 "chownr@npm:^2.0.0":
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
@@ -710,7 +1058,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "client-docs@workspace:."
   dependencies:
-    "@sharkyfi/client": ^3.0.4
+    "@sharkyfi/client": ^4.0.0
     "@solana/web3.js": ^1.72.0
     "@types/node": ^17.0.21
     commander: ^9.3.0
@@ -788,7 +1136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.3.3":
+"debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.3.3, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
   dependencies:
@@ -948,15 +1296,6 @@ __metadata:
   version: 1.0.0
   resolution: "file-uri-to-path@npm:1.0.0"
   checksum: b648580bdd893a008c92c7ecc96c3ee57a5e7b6c4c18a9a09b44fb5d36d79146f8e442578bc0e173dc027adf3987e254ba1dfd6e3ec998b7c282873010502144
-  languageName: node
-  linkType: hard
-
-"find@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "find@npm:0.3.0"
-  dependencies:
-    traverse-chain: ~0.1.0
-  checksum: 1cc321b24e13b11e088e2c951edef125faefdbd6ecab34d92c22a2d121af4a99b2feaee7712ad9ab38226da793702ab59a6c8a6343db63a0ab3901589241ec8c
   languageName: node
   linkType: hard
 
@@ -1258,7 +1597,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.20":
+"lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -1608,6 +1947,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"polished@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "polished@npm:4.2.2"
+  dependencies:
+    "@babel/runtime": ^7.17.8
+  checksum: 97fb927dc55cd34aeb11b31ae2a3332463f114351c86e8aa6580d7755864a0120164fdc3770e6160c8b1775052f0eda14db9a6e34402cd4b08ab2d658a593725
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.5.1":
+  version: 2.8.4
+  resolution: "prettier@npm:2.8.4"
+  bin:
+    prettier: bin-prettier.js
+  checksum: c173064bf3df57b6d93d19aa98753b9b9dd7657212e33b41ada8e2e9f9884066bb9ca0b4005b89b3ab137efffdf8fbe0b462785aba20364798ff4303aadda57e
+  languageName: node
+  linkType: hard
+
 "pretty-ms@npm:^7.0.1":
   version: 7.0.1
   resolution: "pretty-ms@npm:7.0.1"
@@ -1649,6 +2006,13 @@ __metadata:
     string_decoder: ^1.1.1
     util-deprecate: ^1.0.1
   checksum: d4ea81502d3799439bb955a3a5d1d808592cf3133350ed352aeaa499647858b27b1c4013984900238b0873ec8d0d8defce72469fb7a83e61d53f5ad61cb80dc8
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.11":
+  version: 0.13.11
+  resolution: "regenerator-runtime@npm:0.13.11"
+  checksum: 27481628d22a1c4e3ff551096a683b424242a216fee44685467307f14d58020af1e19660bf2e26064de946bad7eff28950eae9f8209d55723e2d9351e632bbb4
   languageName: node
   linkType: hard
 
@@ -1729,7 +2093,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.3.5":
+"semver@npm:^7.3.5, semver@npm:^7.3.7":
   version: 7.3.8
   resolution: "semver@npm:7.3.8"
   dependencies:
@@ -1792,6 +2156,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"spok@npm:^1.4.3":
+  version: 1.4.3
+  resolution: "spok@npm:1.4.3"
+  dependencies:
+    ansicolors: ~0.3.2
+  checksum: 22fc0ab37ad6314069700d0dae7f878f981fa51d29c478aa1de30aa74f6bdfbb5dee9fe24bfcf59dc234c4240a344139c486ee6e06134a4dd396ab2df75ca18a
+  languageName: node
+  linkType: hard
+
 "ssri@npm:^9.0.0":
   version: 9.0.1
   resolution: "ssri@npm:9.0.1"
@@ -1837,6 +2210,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"superstruct@npm:^0.15.4":
+  version: 0.15.5
+  resolution: "superstruct@npm:0.15.5"
+  checksum: 6d1f5249fee789424b7178fa0a1ffb2ace629c5480c39505885bd8c0046a4ff8b267569a3442fa53b8c560a7ba6599cf3f8af94225aebeb2cf6023f7dd911050
+  languageName: node
+  linkType: hard
+
 "tar@npm:^6.1.11, tar@npm:^6.1.2":
   version: 6.1.13
   resolution: "tar@npm:6.1.13"
@@ -1858,17 +2238,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"text-table@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "text-table@npm:0.2.0"
+  checksum: b6937a38c80c7f84d9c11dd75e49d5c44f71d95e810a3250bd1f1797fc7117c57698204adf676b71497acc205d769d65c16ae8fa10afad832ae1322630aef10a
+  languageName: node
+  linkType: hard
+
 "through@npm:>=2.2.7 <3":
   version: 2.3.8
   resolution: "through@npm:2.3.8"
   checksum: a38c3e059853c494af95d50c072b83f8b676a9ba2818dcc5b108ef252230735c54e0185437618596c790bbba8fcdaef5b290405981ffa09dce67b1f1bf190cbd
-  languageName: node
-  linkType: hard
-
-"tiny-invariant@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "tiny-invariant@npm:1.2.0"
-  checksum: e09a718a7c4a499ba592cdac61f015d87427a0867ca07f50c11fd9b623f90cdba18937b515d4a5e4f43dac92370498d7bdaee0d0e7a377a61095e02c4a92eade
   languageName: node
   linkType: hard
 
@@ -1883,13 +2263,6 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
-  languageName: node
-  linkType: hard
-
-"traverse-chain@npm:~0.1.0":
-  version: 0.1.0
-  resolution: "traverse-chain@npm:0.1.0"
-  checksum: dea79231a429a3dd80a829ff83e8914b6d0032d55dd0971f69d5273e95155869fca400dd9e22f0d91c3b0dda9668aaeeb694f525d7e5a55ca7f695cc149088a2
   languageName: node
   linkType: hard
 
@@ -1931,7 +2304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3, tslib@npm:^2.3.1, tslib@npm:^2.4.0":
+"tslib@npm:^2.0.3, tslib@npm:^2.4.0":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
