@@ -458,9 +458,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sharkyfi/client@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@sharkyfi/client@npm:4.0.0"
+"@sharkyfi/client@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@sharkyfi/client@npm:4.2.0"
   dependencies:
     "@cardinal/common": 5.0.7
     "@cardinal/payment-manager": 2.2.0
@@ -480,7 +480,7 @@ __metadata:
     typescript: ~4.6.0
   peerDependencies:
     bn.js: "*"
-  checksum: 9d9ba473e25f6c46c8b66a3d0e08cd78fc6d998bd072e6b00eae5a21d7bc22c14db7c9307daf215c09e79113b89e971d02e68223ec2b1f83543ba7a6edeae597
+  checksum: 45ccf407e460cd973ed66e1ea43047119f2a2d1190498d54666713bd9a83a5e2c9dfb470c57d1f7793e80a857c33c08d3f0d3604f1144453aaa3e252f2fe7e69
   languageName: node
   linkType: hard
 
@@ -1058,7 +1058,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "client-docs@workspace:."
   dependencies:
-    "@sharkyfi/client": ^4.0.0
+    "@sharkyfi/client": ^4.2.0
     "@solana/web3.js": ^1.72.0
     "@types/node": ^17.0.21
     commander: ^9.3.0
