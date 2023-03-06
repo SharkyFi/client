@@ -68,3 +68,50 @@ const apr = loan.data.loanState.taken?.taken.apy.fixed!.apy / 1000
 
 const apy = 100 * (Math.exp(apr / 100) - 1)
 ```
+
+# How to get historical events
+
+It depends for what purpose. If you want to get parsed transactions programmatically from the beginning of time, please refer to our official partner - Hello Moon, if you want to just do explorative analysis via SQL, we have pre-parsed table on Dune, if you want some super custom integration, we can give you acess to our own database for some unique use-cases.
+
+## Hello Moon API
+
+For example: https://docs.hellomoon.io/reference/post_v0-sharky-loan-events
+
+Example response
+```json
+{
+  "data": [
+    {
+      "blockTime": "1677959719",
+      "blockId": "180767604",
+      "transactionPosition": 977,
+      "instructionOrdinal": 1,
+      "transactionId": "4QovotWNSLvByYZCBpg83oLtW8rXdeAyFWfuEDeDh455QUgW43pBWCDYYjdPBAy5kb3vSVVHi338MeaWcjEdtCEp",
+      "orderBook": "7yJpf4UzKkeWveDvW6KmHunbuXRAEZdcwgcv4zMyNU5y",
+      "loan": "GY6kuy6rYwdRDR3tjz8idcH7vatKnhYkz8UQ1GzCCEtv",
+      "actionType": "repay",
+      "lender": "9sP8D7wcqHHNSdUqvXLeYFetvAk2G7rnLbnEfH29HHwM",
+      "borrower": "FAWGVTAEyfBX2TcMLCQnUusW4CPh6REtTmCkDAURPETn",
+      "collateralMint": "FiX2tBUWjWvjF1JhL15VzshFeyVc4P755gbh5apByZSA",
+      "tokenMint": "So11111111111111111111111111111111111111112",
+      "loanDurationSeconds": null,
+      "amountOffered": null,
+      "amountCancelled": null,
+      "amountTaken": null,
+      "amountRepayed": 0.122393078,
+      "isRepayEscrow": true,
+      "isDefaultEscrow": null
+    }
+  ],
+  "paginationToken": "eyJibG9ja1RpbWUiOiIxNjc3OTU5NzE5IiwidHJhbnNhY3Rpb25JZCI6IjIxTlpta3FLZ0M0bzlyQllBSmZXZ2N4YzNKUXlKcjJxNlhEM3RyODR2QWQ1ZTV1SEFjd3FoOU1Nd3NSQ3lqamFNeGl3eURRbkVLcmM4cWpCeUs2ODc0ODUifQ=="
+}
+```
+
+By using the pagination token you can fetch events since the beginning of time.
+
+## Dune
+Refer to this example query: https://dune.com/queries/2015361
+
+## Custom Database Access
+
+Please open a support ticket in our [discord](http://discord.gg/sharkyfi) clearly describing the use-case. 
