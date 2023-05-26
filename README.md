@@ -61,12 +61,51 @@ Additionally, those are stored as millpercents — thousandths of a percent, to 
 To get regular APR and APY as percents from the values we store on chain:
 
 ```
+import { aprToApy, apyToApr, aprToInterestRatio, interestRatioToApr } from '@sharkyfi/client'
+
+// Get values from the loan and orderbook
 // for orderbooks:
 const apr = orderBook.apy.fixed!.apy / 1000
 // or for taken loans:
 const apr = loan.data.loanState.taken?.taken.apy.fixed!.apy / 1000
 
-const apy = 100 * (Math.exp(apr / 100) - 1)
+const principalLamports = loan.data.principalLamports.toNumber()
+const feePermillicentage = orderBook.feePermillicentage
+const durationSeconds =
+    loan.data.loanState.taken?.taken.terms.time?.duration.toNumber() ||
+    loan.data.loanState.offer?.offer.termsSpec.time?.duration.toNumber()
+
+// Calculations
+const interestRatio = aprToInterestRatio(apr, durationSeconds)
+const interestWithFeeLamports = interestRatio * principalLamports
+const feeLamports = Math.floor((interestWithFeeLamports * feePermillicentage) / 100_000)
+const interestWithoutFeeLamports = interestWithFeeLamports - feeLamports
+const interestRatioAfterFee = interestWithoutFeeLamports / principalLamports
+const aprAfterFee = interestRatioToApr(interestRatioAfterFee, durationSeconds)
+const apyAfterFee = aprToApy(aprAfterFee)
+
+console.log({
+  interestRatio, // Shown to borrowers
+  interestWithFeeLamports, // Shown to borrowers
+  apyAfterFee, // Shown to lenders
+})
+```
+
+For example, given these inputs, you will get these values:
+
+```
+const principalLamports = 1e9
+const apr = 145365 / 1000
+const feePermillicentage = 16000
+const durationSeconds = 7 * 24 * 60 * 60
+
+// ...calculations
+
+console.log({
+  interestRatio, // 0.028270453175256227 (shown as 2.82%)
+  interestWithFeeLamports, // 28270453 (shown as 0.028 SOL)
+  apyAfterFee, // 239.9988789793601 (shown as 240%)
+})
 ```
 
 # How to get historical events
@@ -78,6 +117,7 @@ It depends for what purpose. If you want to get parsed transactions programmatic
 For example: https://docs.hellomoon.io/reference/post_v0-sharky-loan-events
 
 Example response
+
 ```json
 {
   "data": [
@@ -110,8 +150,9 @@ Example response
 By using the pagination token you can fetch events since the beginning of time.
 
 ## Dune
+
 Refer to this example query: https://dune.com/queries/2015361
 
 ## Custom Database Access
 
-Please open a support ticket in our [discord](http://discord.gg/sharkyfi) clearly describing the use-case. 
+Please open a support ticket in our [discord](http://discord.gg/sharkyfi) clearly describing the use-case.
