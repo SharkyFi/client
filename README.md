@@ -78,6 +78,7 @@ const durationSeconds =
 // Calculations
 const interestRatio = aprToInterestRatio(apr, durationSeconds)
 const interestWithFeeLamports = interestRatio * principalLamports
+const totalOwedLamports = principalLamports + interestWithFeeLamports
 const feeLamports = Math.floor((interestWithFeeLamports * feePermillicentage) / 100_000)
 const interestWithoutFeeLamports = interestWithFeeLamports - feeLamports
 const interestRatioAfterFee = interestWithoutFeeLamports / principalLamports
@@ -87,6 +88,7 @@ const apyAfterFee = aprToApy(aprAfterFee)
 console.log({
   interestRatio, // Shown to borrowers
   interestWithFeeLamports, // Shown to borrowers
+  totalOwedLamports, // Shown to borrowers
   apyAfterFee, // Shown to lenders
 })
 ```
@@ -104,6 +106,7 @@ const durationSeconds = 7 * 24 * 60 * 60
 console.log({
   interestRatio, // 0.028270453175256227 (shown as 2.82%)
   interestWithFeeLamports, // 28270453 (shown as 0.028 SOL)
+  totalOwedLamports, // 1028270453 (shown as 1.028 SOL)
   apyAfterFee, // 239.9988789793601 (shown as 240%)
 })
 ```
