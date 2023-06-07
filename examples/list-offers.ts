@@ -1,4 +1,9 @@
-import { createSharkyClient, OfferedLoan, TakenLoan } from '@sharkyfi/client'
+import {
+  AnchorProvider,
+  createSharkyClient,
+  OfferedLoan,
+  TakenLoan,
+} from '@sharkyfi/client'
 import { LAMPORTS_PER_SOL } from '@solana/web3.js'
 import { Command } from 'commander'
 import { createProvider } from './lib/createProvider'
@@ -25,13 +30,13 @@ async function main() {
   const myOpenOffers = loans.filter(
     (loan) =>
       loan.data.loanState.offer?.offer.lenderWallet.toString() ===
-      program.provider.wallet.publicKey.toString()
+      (program.provider as AnchorProvider).wallet.publicKey.toString()
   )
   // Note: lenderNoteMint is currently just the lender's wallet address.
   const myActiveLoans = loans.filter(
     (loan) =>
       loan.data.loanState.taken?.taken.lenderNoteMint.toString() ===
-      program.provider.wallet.publicKey.toString()
+      (program.provider as AnchorProvider).wallet.publicKey.toString()
   )
 
   console.log('Open offers:')
