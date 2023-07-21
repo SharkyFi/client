@@ -2,9 +2,10 @@ import {
   AnchorProvider,
   createSharkyClient,
   OfferedLoan,
+  SHARKY_PROGRAM_ID,
   TakenLoan,
 } from '@sharkyfi/client'
-import { LAMPORTS_PER_SOL } from '@solana/web3.js'
+import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js'
 import { Command } from 'commander'
 import { createProvider } from './lib/createProvider'
 
@@ -20,7 +21,11 @@ async function main() {
     .opts()
 
   const provider = createProvider(options.walletPath)
-  const sharkyClient = createSharkyClient(provider)
+  const sharkyClient = createSharkyClient(
+    provider,
+    new PublicKey(SHARKY_PROGRAM_ID),
+    'mainnet'
+  )
   const { program } = sharkyClient
 
   const loans = await sharkyClient.fetchAllLoans({
@@ -60,7 +65,7 @@ async function main() {
       borrower: loan.data.loanState.taken.taken.borrowerNoteMint.toString(),
       nftCollateralMint:
         loan.data.loanState.taken.taken.nftCollateralMint.toString(),
-      isForeclosable: loan.isForeclosable('mainnet'), // Soft grace period differs on devnet
+      isForeclosable: loan.isForeclosable(),
     }))
   )
 }

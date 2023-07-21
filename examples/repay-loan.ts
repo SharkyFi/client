@@ -1,4 +1,4 @@
-import { createSharkyClient } from '@sharkyfi/client'
+import { createSharkyClient, SHARKY_PROGRAM_ID } from '@sharkyfi/client'
 import { PublicKey } from '@solana/web3.js'
 import { Command } from 'commander'
 import { createProvider } from './lib/createProvider'
@@ -17,7 +17,11 @@ async function main() {
     .opts()
 
   const provider = createProvider(options.walletPath, options.rpcEndpoint)
-  const sharkyClient = createSharkyClient(provider)
+  const sharkyClient = createSharkyClient(
+    provider,
+    new PublicKey(SHARKY_PROGRAM_ID),
+    'mainnet'
+  )
   const { program } = sharkyClient
 
   console.log('Fetching loan')

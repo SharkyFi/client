@@ -2,7 +2,9 @@ import {
   createSharkyClient,
   enabledOrderBooks,
   OrderBook,
+  SHARKY_PROGRAM_ID,
 } from '@sharkyfi/client'
+import { PublicKey } from '@solana/web3.js'
 import { Command } from 'commander'
 import fetch from 'node-fetch'
 import { createProvider } from './lib/createProvider'
@@ -19,7 +21,11 @@ async function main() {
     .opts()
 
   const provider = createProvider(options.walletPath)
-  const sharkyClient = createSharkyClient(provider)
+  const sharkyClient = createSharkyClient(
+    provider,
+    new PublicKey(SHARKY_PROGRAM_ID),
+    'mainnet'
+  )
   const { program } = sharkyClient
 
   // Fetch and log the current orderbooks

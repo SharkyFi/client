@@ -2,7 +2,11 @@ import { LAMPORTS_PER_SOL } from '@solana/web3.js'
 import { Command } from 'commander'
 import { createProvider } from './lib/createProvider'
 import { PublicKey } from '@solana/web3.js'
-import { createSharkyClient, OfferedLoan } from '@sharkyfi/client'
+import {
+  createSharkyClient,
+  OfferedLoan,
+  SHARKY_PROGRAM_ID,
+} from '@sharkyfi/client'
 import { exit } from 'process'
 
 // Usage
@@ -18,7 +22,11 @@ async function main() {
     .opts()
 
   const provider = createProvider(options.walletPath)
-  const sharkyClient = createSharkyClient(provider)
+  const sharkyClient = createSharkyClient(
+    provider,
+    new PublicKey(SHARKY_PROGRAM_ID),
+    'mainnet'
+  )
   const { program } = sharkyClient
 
   const result = (await sharkyClient.fetchLoan({

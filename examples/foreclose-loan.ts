@@ -1,4 +1,8 @@
-import { createSharkyClient, TakenLoan } from '@sharkyfi/client'
+import {
+  createSharkyClient,
+  SHARKY_PROGRAM_ID,
+  TakenLoan,
+} from '@sharkyfi/client'
 import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js'
 import { Command } from 'commander'
 import prettyMs from 'pretty-ms'
@@ -18,7 +22,11 @@ async function main() {
     .opts()
 
   const provider = createProvider(options.walletPath)
-  const sharkyClient = createSharkyClient(provider)
+  const sharkyClient = createSharkyClient(
+    provider,
+    new PublicKey(SHARKY_PROGRAM_ID),
+    'mainnet'
+  )
   const { program } = sharkyClient
 
   const result = (await sharkyClient.fetchLoan({
@@ -37,7 +45,7 @@ async function main() {
   }
   const loan = result.taken
 
-  if (!loan.isForeclosable('mainnet')) {
+  if (!loan.isForeclosable()) {
     const currentTimestamp = new Date().getTime() / 1000
     const startTimestamp =
       loan.data.loanState.taken.taken.terms.time?.start.toNumber()
