@@ -1,0 +1,1033 @@
+{
+  "version": "0.1.0",
+  "name": "sharky",
+  "instructions": [
+    {
+      "name": "createOrderBook",
+      "accounts": [
+        {
+          "name": "sharkyKey",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "funder",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "orderBook",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "orderBookType",
+          "type": {
+            "defined": "OrderBookType"
+          }
+        },
+        {
+          "name": "apy",
+          "type": {
+            "defined": "APY"
+          }
+        },
+        {
+          "name": "loanTerms",
+          "type": {
+            "defined": "BookLoanTerms"
+          }
+        }
+      ]
+    },
+    {
+      "name": "updateOrderBook",
+      "accounts": [
+        {
+          "name": "sharkyKey",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "orderBook",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "orderBookType",
+          "type": {
+            "option": {
+              "defined": "OrderBookType"
+            }
+          }
+        },
+        {
+          "name": "apy",
+          "type": {
+            "option": {
+              "defined": "APY"
+            }
+          }
+        },
+        {
+          "name": "loanTerms",
+          "type": {
+            "option": {
+              "defined": "BookLoanTerms"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "closeOrderBook",
+      "accounts": [
+        {
+          "name": "sharkyKey",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "fundee",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "orderBook",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "offerLoan",
+      "accounts": [
+        {
+          "name": "lender",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "lenderTokenWallet",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "loan",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "escrow",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "escrowTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "orderBook",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "escrowBump",
+          "type": "u8"
+        },
+        {
+          "name": "principalLamports",
+          "type": "u64"
+        },
+        {
+          "name": "termsChoice",
+          "type": {
+            "option": {
+              "defined": "LoanTermsSpec"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rescindLoan",
+      "accounts": [
+        {
+          "name": "loan",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "fundee",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokensTo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "lenderWallet",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "escrow",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "escrowTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "takeLoan",
+      "accounts": [
+        {
+          "name": "lender",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "borrower",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "borrowerTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "borrowerCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "collateralMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "loan",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrowTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrowCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "orderBook",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "expectedLoan",
+          "type": {
+            "defined": "Loan"
+          }
+        },
+        {
+          "name": "nftListIndex",
+          "type": {
+            "option": "u64"
+          }
+        }
+      ]
+    },
+    {
+      "name": "transferAndFreezeCollateral",
+      "accounts": [
+        {
+          "name": "borrower",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "borrowerCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "collateralMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "loan",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrowCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenManager",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenManagerTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintCounter",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenManagerProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "forecloseLoan",
+      "accounts": [
+        {
+          "name": "loan",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "fundee",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrowCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "collateralMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "lender",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "lenderCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenManager",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenManagerTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "borrowerCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "collector",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenManagerProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "repayLoan",
+      "accounts": [
+        {
+          "name": "loan",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "borrower",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "borrowerTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "borrowerCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "lender",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "lenderTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrowCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "valueMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "collateralMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenManager",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenManagerTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "collector",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenManagerProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "forecloseLoanEscrow",
+      "accounts": [
+        {
+          "name": "loan",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "fundee",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrowCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "collateralMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "lender",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "lenderCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "repayLoanEscrow",
+      "accounts": [
+        {
+          "name": "loan",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "borrower",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "borrowerTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "borrowerCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "lender",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "lenderTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrowCollateralAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "valueMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "collateralMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createNftList",
+      "accounts": [
+        {
+          "name": "nftList",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sharkyKey",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "collectionName",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "updateNftList",
+      "accounts": [
+        {
+          "name": "nftList",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sharkyKey",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "mints",
+          "type": {
+            "vec": {
+              "defined": "UpdateIndex"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "closeNftList",
+      "accounts": [
+        {
+          "name": "sharkyKey",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "fundee",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftList",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "OrderBook",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "orderBookType",
+            "type": {
+              "defined": "OrderBookType"
+            }
+          },
+          {
+            "name": "apy",
+            "type": {
+              "defined": "APY"
+            }
+          },
+          {
+            "name": "loanTerms",
+            "type": {
+              "defined": "BookLoanTerms"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Loan",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "principalLamports",
+            "type": "u64"
+          },
+          {
+            "name": "orderBook",
+            "type": "publicKey"
+          },
+          {
+            "name": "valueTokenMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "escrowBumpSeed",
+            "type": "u8"
+          },
+          {
+            "name": "loanState",
+            "type": {
+              "defined": "LoanState"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "NFTList",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "collectionName",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "LoanOffer",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "lenderWallet",
+            "type": "publicKey"
+          },
+          {
+            "name": "termsSpec",
+            "type": {
+              "defined": "LoanTermsSpec"
+            }
+          },
+          {
+            "name": "offerTime",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TakenLoan",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "nftCollateralMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "lenderNoteMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "borrowerNoteMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "apy",
+            "type": {
+              "defined": "APY"
+            }
+          },
+          {
+            "name": "terms",
+            "type": {
+              "defined": "LoanTerms"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateIndex",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "index",
+            "type": "u32"
+          },
+          {
+            "name": "mint",
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ErrorCode",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Custom"
+          },
+          {
+            "name": "InvalidArgument"
+          },
+          {
+            "name": "InvalidAccountData"
+          },
+          {
+            "name": "IllegalOwner"
+          },
+          {
+            "name": "LoanIsCardinal"
+          },
+          {
+            "name": "LoanIsEscrow"
+          },
+          {
+            "name": "InvalidMint"
+          }
+        ]
+      }
+    },
+    {
+      "name": "APY",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Fixed",
+            "fields": [
+              {
+                "name": "apy",
+                "type": "u32"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "BookLoanTerms",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Fixed",
+            "fields": [
+              {
+                "name": "terms",
+                "type": {
+                  "defined": "LoanTermsSpec"
+                }
+              }
+            ]
+          },
+          {
+            "name": "LenderChooses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "LoanTermsSpec",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Time",
+            "fields": [
+              {
+                "name": "duration",
+                "type": "u64"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "OrderBookType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Collection",
+            "fields": [
+              {
+                "name": "collection_key",
+                "type": "publicKey"
+              }
+            ]
+          },
+          {
+            "name": "NFTList",
+            "fields": [
+              {
+                "name": "list_account",
+                "type": "publicKey"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "LoanTerms",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Time",
+            "fields": [
+              {
+                "name": "start",
+                "type": "i64"
+              },
+              {
+                "name": "duration",
+                "type": "u64"
+              },
+              {
+                "name": "total_owed_lamports",
+                "type": "u64"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "LoanState",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Offer",
+            "fields": [
+              {
+                "name": "offer",
+                "type": {
+                  "defined": "LoanOffer"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Taken",
+            "fields": [
+              {
+                "name": "taken",
+                "type": {
+                  "defined": "TakenLoan"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
