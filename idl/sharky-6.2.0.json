@@ -4,9 +4,7 @@
   "instructions": [
     {
       "name": "createOrderBook",
-      "docs": [
-        "Creates an order book, must be signed by sharky key"
-      ],
+      "docs": ["Creates an order book, must be signed by sharky key"],
       "accounts": [
         {
           "name": "orderBook",
@@ -55,9 +53,7 @@
     },
     {
       "name": "updateOrderBook",
-      "docs": [
-        "Updates an order book, must be signed by sharky key"
-      ],
+      "docs": ["Updates an order book, must be signed by sharky key"],
       "accounts": [
         {
           "name": "orderBook",
@@ -111,9 +107,7 @@
     },
     {
       "name": "closeOrderBook",
-      "docs": [
-        "Closes an order book, must be signed by sharky key"
-      ],
+      "docs": ["Closes an order book, must be signed by sharky key"],
       "accounts": [
         {
           "name": "orderBook",
@@ -130,9 +124,7 @@
     },
     {
       "name": "offerLoan",
-      "docs": [
-        "Offers a loan for a given order book"
-      ],
+      "docs": ["Offers a loan for a given order book"],
       "accounts": [
         {
           "name": "lender",
@@ -211,9 +203,7 @@
     },
     {
       "name": "rescindLoan",
-      "docs": [
-        "Removes an offered but not taken loan"
-      ],
+      "docs": ["Removes an offered but not taken loan"],
       "accounts": [
         {
           "name": "loan",
@@ -332,9 +322,7 @@
           "name": "collateralMint",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "type of token"
-          ]
+          "docs": ["type of token"]
         },
         {
           "name": "loan",
@@ -415,9 +403,7 @@
     },
     {
       "name": "forecloseLoanV3",
-      "docs": [
-        "Forecloses on a taken lone that has met some condition"
-      ],
+      "docs": ["Forecloses on a taken lone that has met some condition"],
       "accounts": [
         {
           "name": "loan",
@@ -499,9 +485,7 @@
     },
     {
       "name": "repayLoanV3",
-      "docs": [
-        "Repays a given loan in exchange for the NFT"
-      ],
+      "docs": ["Repays a given loan in exchange for the NFT"],
       "accounts": [
         {
           "name": "loan",
@@ -872,9 +856,7 @@
           },
           {
             "name": "principalLamports",
-            "docs": [
-              "amount in tokens, decimals included"
-            ],
+            "docs": ["amount in tokens, decimals included"],
             "type": "u64"
           },
           {
@@ -883,9 +865,7 @@
           },
           {
             "name": "valueTokenMint",
-            "docs": [
-              "Token mint for what the loan is in (spl address)"
-            ],
+            "docs": ["Token mint for what the loan is in (spl address)"],
             "type": "publicKey"
           },
           {
@@ -894,9 +874,7 @@
           },
           {
             "name": "loanState",
-            "docs": [
-              "stores start and duration"
-            ],
+            "docs": ["stores start and duration"],
             "type": {
               "defined": "LoanState"
             }
@@ -1033,9 +1011,7 @@
     },
     {
       "name": "APY",
-      "docs": [
-        "APY settings on an [`OrderBook`]"
-      ],
+      "docs": ["APY settings on an [`OrderBook`]"],
       "type": {
         "kind": "enum",
         "variants": [
@@ -1044,9 +1020,7 @@
             "fields": [
               {
                 "name": "apy",
-                "docs": [
-                  "Thousandths of a percent"
-                ],
+                "docs": ["Thousandths of a percent"],
                 "type": "u32"
               }
             ]
@@ -1129,9 +1103,7 @@
             "fields": [
               {
                 "name": "start",
-                "docs": [
-                  "This is a [`UnixTimeStamp`]"
-                ],
+                "docs": ["This is a [`UnixTimeStamp`]"],
                 "type": "i64"
               },
               {
