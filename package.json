@@ -1,6 +1,6 @@
 {
   "name": "client-docs",
-  "version": "6.4.0",
+  "version": "6.5.1",
   "description": "Documentation for the @sharkyfi/client package",
   "repository": "https://github.com/SharkyFi/client",
   "license": "MIT",
