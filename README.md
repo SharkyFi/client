@@ -60,7 +60,7 @@ Additionally, those are stored as millpercents — thousandths of a percent, to 
 
 To get regular APR and APY as percents from the values we store on chain:
 
-```
+```js
 import { aprToApy, apyToApr, aprToInterestRatio, interestRatioToApr } from '@sharkyfi/client'
 
 // Get values from the loan and orderbook
@@ -95,7 +95,7 @@ console.log({
 
 For example, given these inputs, you will get these values:
 
-```
+```js
 const principalLamports = 1e9
 const apr = 145365 / 1000
 const feePermillicentage = 16000
