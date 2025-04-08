@@ -2,49 +2,11 @@
   "address": "SharkXwkS3h24fJ2LZvgG5tPbsH3BKQYuAtKdqskf1f",
   "metadata": {
     "name": "sharky",
-    "version": "7.0.0",
+    "version": "6.6.0",
     "spec": "0.1.0",
     "description": "Sharky Program"
   },
   "instructions": [
-    {
-      "name": "add_liquidity_token_pool",
-      "discriminator": [231, 202, 43, 10, 123, 196, 118, 172],
-      "accounts": [
-        {
-          "name": "orderbook"
-        },
-        {
-          "name": "pool",
-          "writable": true
-        },
-        {
-          "name": "usdc_vault",
-          "writable": true
-        },
-        {
-          "name": "lender",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "lender_usdc",
-          "writable": true
-        },
-        {
-          "name": "loan_mint"
-        },
-        {
-          "name": "token_program"
-        }
-      ],
-      "args": [
-        {
-          "name": "usdc_amount",
-          "type": "u64"
-        }
-      ]
-    },
     {
       "name": "close_escrow_value_mint_ata_admin",
       "discriminator": [4, 134, 1, 41, 168, 248, 221, 28],
@@ -62,21 +24,57 @@
         },
         {
           "name": "escrow_value_mint_token_account",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "escrow"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6, 221, 246, 225, 215, 101, 161, 147, 217, 203, 225, 70, 206,
+                  235, 121, 172, 28, 180, 133, 237, 95, 91, 55, 145, 58, 140,
+                  245, 133, 126, 255, 0, 169
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6, 155, 136, 87, 254, 171, 129, 132, 251, 104, 127, 99, 70,
+                  24, 192, 53, 218, 196, 57, 220, 26, 235, 59, 85, 152, 160,
+                  240, 0, 0, 0, 0, 1
+                ]
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
         },
         {
           "name": "admin",
           "writable": true,
-          "signer": true
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
-          "name": "associated_token_program"
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         }
       ],
       "args": [
@@ -96,7 +94,8 @@
         },
         {
           "name": "payer",
-          "signer": true
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
         }
       ],
       "args": []
@@ -112,70 +111,8 @@
         },
         {
           "name": "payer",
-          "signer": true
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "close_token_orderbook",
-      "discriminator": [227, 4, 225, 109, 207, 235, 71, 106],
-      "accounts": [
-        {
-          "name": "orderbook",
-          "writable": true
-        },
-        {
-          "name": "authority",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "system_program"
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "close_token_pool",
-      "discriminator": [2, 251, 54, 4, 242, 200, 174, 143],
-      "accounts": [
-        {
-          "name": "orderbook"
-        },
-        {
-          "name": "pool",
-          "writable": true
-        },
-        {
-          "name": "usdc_vault",
-          "writable": true
-        },
-        {
-          "name": "collateral_vault",
-          "writable": true
-        },
-        {
-          "name": "lender",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "lender_usdc",
-          "writable": true
-        },
-        {
-          "name": "lender_collateral",
-          "writable": true
-        },
-        {
-          "name": "loan_mint"
-        },
-        {
-          "name": "collateral_mint"
-        },
-        {
-          "name": "token_program"
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
         }
       ],
       "args": []
@@ -190,7 +127,8 @@
         },
         {
           "name": "payer",
-          "signer": true
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
         }
       ],
       "args": [
@@ -213,10 +151,12 @@
         {
           "name": "payer",
           "writable": true,
-          "signer": true
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
@@ -265,128 +205,32 @@
         },
         {
           "name": "program_version",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112, 114, 111, 103, 114, 97, 109, 95, 118, 101, 114, 115, 105,
+                  111, 110
+                ]
+              }
+            ]
+          }
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         }
       ],
       "args": [
         {
           "name": "version",
           "type": "u8"
-        }
-      ]
-    },
-    {
-      "name": "create_token_orderbook",
-      "discriminator": [136, 150, 94, 93, 212, 162, 222, 214],
-      "accounts": [
-        {
-          "name": "orderbook",
-          "writable": true
-        },
-        {
-          "name": "loan_mint"
-        },
-        {
-          "name": "collateral_mint"
-        },
-        {
-          "name": "authority",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "system_program"
-        }
-      ],
-      "args": [
-        {
-          "name": "duration",
-          "type": "u64"
-        },
-        {
-          "name": "apr",
-          "type": "u32"
-        },
-        {
-          "name": "fee_permillicentage",
-          "type": "u16"
-        },
-        {
-          "name": "fee_authority",
-          "type": "pubkey"
-        },
-        {
-          "name": "min_liquidity",
-          "type": {
-            "option": "u64"
-          }
-        },
-        {
-          "name": "max_liquidity",
-          "type": {
-            "option": "u64"
-          }
-        }
-      ]
-    },
-    {
-      "name": "create_token_pool",
-      "discriminator": [23, 169, 27, 122, 147, 169, 209, 152],
-      "accounts": [
-        {
-          "name": "orderbook"
-        },
-        {
-          "name": "pool",
-          "writable": true
-        },
-        {
-          "name": "usdc_vault",
-          "writable": true
-        },
-        {
-          "name": "collateral_vault"
-        },
-        {
-          "name": "lender",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "lender_usdc_ata",
-          "writable": true
-        },
-        {
-          "name": "loan_mint"
-        },
-        {
-          "name": "collateral_mint"
-        },
-        {
-          "name": "token_program"
-        },
-        {
-          "name": "system_program"
-        }
-      ],
-      "args": [
-        {
-          "name": "nonce",
-          "type": "u64"
-        },
-        {
-          "name": "initial_usdc_liquidity",
-          "type": "u64"
-        },
-        {
-          "name": "required_collateral_amount",
-          "type": "u64"
         }
       ]
     },
@@ -418,11 +262,35 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "new_escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "new_loan"
+              }
+            ]
+          }
         },
         {
           "name": "value_mint"
@@ -446,10 +314,12 @@
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
           "name": "log_wrapper",
@@ -458,7 +328,8 @@
         },
         {
           "name": "mpl_core_program",
-          "docs": ["The MPL Core program."]
+          "docs": ["The MPL Core program."],
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
         }
       ],
       "args": [
@@ -499,19 +370,99 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "escrow_collateral_token_account",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "escrow"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6, 221, 246, 225, 215, 101, 161, 147, 217, 203, 225, 70, 206,
+                  235, 121, 172, 28, 180, 133, 237, 95, 91, 55, 145, 58, 140,
+                  245, 133, 126, 255, 0, 169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
         },
         {
           "name": "new_escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "new_loan"
+              }
+            ]
+          }
         },
         {
           "name": "new_escrow_collateral_token_account",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "new_escrow"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6, 221, 246, 225, 215, 101, 161, 147, 217, 203, 225, 70, 206,
+                  235, 121, 172, 28, 180, 133, 237, 95, 91, 55, 145, 58, 140,
+                  245, 133, 126, 255, 0, 169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
         },
         {
           "name": "value_mint"
@@ -528,26 +479,51 @@
         },
         {
           "name": "metadata",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 101, 116, 97, 100, 97, 116, 97]
+              },
+              {
+                "kind": "account",
+                "path": "mpl_token_metadata_program"
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "mpl_token_metadata_program"
+            }
+          }
         },
         {
           "name": "edition",
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
-          "name": "associated_token_program"
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
-          "name": "mpl_token_metadata_program"
+          "name": "mpl_token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
         }
       ],
       "args": [
@@ -585,11 +561,35 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "new_escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "new_loan"
+              }
+            ]
+          }
         },
         {
           "name": "value_mint"
@@ -612,10 +612,12 @@
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
           "name": "mpl_bubblegum_program"
@@ -624,7 +626,8 @@
           "name": "compression_program"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         }
       ],
       "args": [
@@ -661,97 +664,6 @@
       ]
     },
     {
-      "name": "extend_token_loan",
-      "discriminator": [57, 33, 61, 102, 70, 86, 164, 130],
-      "accounts": [
-        {
-          "name": "orderbook"
-        },
-        {
-          "name": "old_loan",
-          "writable": true
-        },
-        {
-          "name": "new_loan",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "old_pool",
-          "writable": true
-        },
-        {
-          "name": "new_pool",
-          "writable": true
-        },
-        {
-          "name": "old_lender_usdc",
-          "writable": true
-        },
-        {
-          "name": "old_collateral_vault",
-          "writable": true
-        },
-        {
-          "name": "new_usdc_vault",
-          "writable": true
-        },
-        {
-          "name": "new_collateral_vault",
-          "writable": true
-        },
-        {
-          "name": "borrower",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "borrower_usdc",
-          "writable": true
-        },
-        {
-          "name": "borrower_collateral",
-          "writable": true
-        },
-        {
-          "name": "loan_mint"
-        },
-        {
-          "name": "collateral_mint"
-        },
-        {
-          "name": "fee_authority",
-          "writable": true
-        },
-        {
-          "name": "burn_wallet",
-          "writable": true
-        },
-        {
-          "name": "price_update"
-        },
-        {
-          "name": "token_program"
-        },
-        {
-          "name": "associated_token_program"
-        },
-        {
-          "name": "system_program"
-        }
-      ],
-      "args": [
-        {
-          "name": "new_usdc_amount",
-          "type": "u64"
-        },
-        {
-          "name": "expected_new_loan",
-          "type": "string"
-        }
-      ]
-    },
-    {
       "name": "foreclose_loan_core",
       "docs": ["Forecloses on a taken lone that has met some condition (core)"],
       "discriminator": [207, 35, 84, 147, 119, 14, 195, 133],
@@ -762,7 +674,19 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "collateral_mint",
@@ -785,10 +709,12 @@
           "signer": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
           "name": "log_wrapper",
@@ -797,7 +723,8 @@
         },
         {
           "name": "mpl_core_program",
-          "docs": ["The MPL Core program."]
+          "docs": ["The MPL Core program."],
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
         }
       ],
       "args": []
@@ -813,11 +740,51 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "escrow_collateral_token_account",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "escrow"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6, 221, 246, 225, 215, 101, 161, 147, 217, 203, 225, 70, 206,
+                  235, 121, 172, 28, 180, 133, 237, 95, 91, 55, 145, 58, 140,
+                  245, 133, 126, 255, 0, 169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
         },
         {
           "name": "collateral_mint",
@@ -834,7 +801,35 @@
         },
         {
           "name": "lender_collateral_token_account",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "lender"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6, 221, 246, 225, 215, 101, 161, 147, 217, 203, 225, 70, 206,
+                  235, 121, 172, 28, 180, 133, 237, 95, 91, 55, 145, 58, 140,
+                  245, 133, 126, 255, 0, 169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
         },
         {
           "name": "borrower_collateral_token_account",
@@ -842,26 +837,51 @@
         },
         {
           "name": "metadata",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 101, 116, 97, 100, 97, 116, 97]
+              },
+              {
+                "kind": "account",
+                "path": "mpl_token_metadata_program"
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "mpl_token_metadata_program"
+            }
+          }
         },
         {
           "name": "edition",
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
-          "name": "associated_token_program"
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
-          "name": "mpl_token_metadata_program"
+          "name": "mpl_token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
         }
       ],
       "args": []
@@ -877,7 +897,19 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "borrower",
@@ -899,10 +931,12 @@
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
           "name": "mpl_bubblegum_program"
@@ -911,7 +945,8 @@
           "name": "compression_program"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         }
       ],
       "args": [
@@ -944,50 +979,6 @@
       ]
     },
     {
-      "name": "foreclose_token_loan",
-      "discriminator": [197, 56, 225, 73, 11, 232, 33, 30],
-      "accounts": [
-        {
-          "name": "orderbook"
-        },
-        {
-          "name": "loan",
-          "writable": true
-        },
-        {
-          "name": "borrower",
-          "writable": true
-        },
-        {
-          "name": "pool",
-          "writable": true
-        },
-        {
-          "name": "lender",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "lender_collateral_ata",
-          "writable": true
-        },
-        {
-          "name": "collateral_vault",
-          "writable": true
-        },
-        {
-          "name": "loan_mint"
-        },
-        {
-          "name": "collateral_mint"
-        },
-        {
-          "name": "token_program"
-        }
-      ],
-      "args": []
-    },
-    {
       "name": "offer_loan",
       "docs": ["Offers a loan for a given order book"],
       "discriminator": [44, 12, 76, 144, 210, 208, 239, 85],
@@ -1011,7 +1002,19 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "escrow_token_account",
@@ -1021,16 +1024,20 @@
           "name": "order_book"
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
-          "name": "associated_token_program"
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         }
       ],
       "args": [
@@ -1074,7 +1081,19 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "value_mint"
@@ -1098,10 +1117,12 @@
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
           "name": "log_wrapper",
@@ -1110,7 +1131,8 @@
         },
         {
           "name": "mpl_core_program",
-          "docs": ["The MPL Core program."]
+          "docs": ["The MPL Core program."],
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
         }
       ],
       "args": []
@@ -1139,11 +1161,51 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "escrow_collateral_token_account",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "escrow"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6, 221, 246, 225, 215, 101, 161, 147, 217, 203, 225, 70, 206,
+                  235, 121, 172, 28, 180, 133, 237, 95, 91, 55, 145, 58, 140,
+                  245, 133, 126, 255, 0, 169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
         },
         {
           "name": "value_mint"
@@ -1161,26 +1223,51 @@
         },
         {
           "name": "metadata",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 101, 116, 97, 100, 97, 116, 97]
+              },
+              {
+                "kind": "account",
+                "path": "mpl_token_metadata_program"
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "mpl_token_metadata_program"
+            }
+          }
         },
         {
           "name": "edition",
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
-          "name": "associated_token_program"
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
-          "name": "mpl_token_metadata_program"
+          "name": "mpl_token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
         }
       ],
       "args": []
@@ -1205,7 +1292,19 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "value_mint"
@@ -1228,10 +1327,12 @@
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
           "name": "mpl_bubblegum_program"
@@ -1240,7 +1341,8 @@
           "name": "compression_program"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         }
       ],
       "args": [
@@ -1273,60 +1375,6 @@
       ]
     },
     {
-      "name": "repay_token_loan",
-      "discriminator": [208, 50, 208, 39, 189, 153, 25, 251],
-      "accounts": [
-        {
-          "name": "orderbook"
-        },
-        {
-          "name": "loan",
-          "writable": true
-        },
-        {
-          "name": "pool",
-          "writable": true
-        },
-        {
-          "name": "lender_usdc",
-          "writable": true
-        },
-        {
-          "name": "collateral_vault",
-          "writable": true
-        },
-        {
-          "name": "borrower",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "borrower_usdc",
-          "writable": true
-        },
-        {
-          "name": "borrower_collateral",
-          "writable": true
-        },
-        {
-          "name": "loan_mint"
-        },
-        {
-          "name": "collateral_mint"
-        },
-        {
-          "name": "token_program"
-        },
-        {
-          "name": "associated_token_program"
-        },
-        {
-          "name": "system_program"
-        }
-      ],
-      "args": []
-    },
-    {
       "name": "rescind_loan",
       "docs": ["Removes an offered but not taken loan"],
       "discriminator": [64, 64, 160, 211, 51, 36, 177, 158],
@@ -1350,17 +1398,31 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "escrow_token_account",
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
       "args": []
@@ -1403,16 +1465,30 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "order_book"
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
           "name": "log_wrapper",
@@ -1421,7 +1497,8 @@
         },
         {
           "name": "mpl_core_program",
-          "docs": ["The MPL Core program."]
+          "docs": ["The MPL Core program."],
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
         }
       ],
       "args": [
@@ -1475,37 +1552,102 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "escrow_collateral_token_account",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "escrow"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6, 221, 246, 225, 215, 101, 161, 147, 217, 203, 225, 70, 206,
+                  235, 121, 172, 28, 180, 133, 237, 95, 91, 55, 145, 58, 140,
+                  245, 133, 126, 255, 0, 169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
         },
         {
           "name": "order_book"
         },
         {
           "name": "metadata",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 101, 116, 97, 100, 97, 116, 97]
+              },
+              {
+                "kind": "account",
+                "path": "mpl_token_metadata_program"
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "mpl_token_metadata_program"
+            }
+          }
         },
         {
           "name": "edition",
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
-          "name": "associated_token_program"
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
-          "name": "mpl_token_metadata_program"
+          "name": "mpl_token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
         }
       ],
       "args": [
@@ -1552,7 +1694,19 @@
         },
         {
           "name": "escrow",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
         },
         {
           "name": "order_book"
@@ -1571,10 +1725,12 @@
           "writable": true
         },
         {
-          "name": "system_program"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program"
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
           "name": "mpl_bubblegum_program"
@@ -1583,7 +1739,8 @@
           "name": "compression_program"
         },
         {
-          "name": "rent"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         }
       ],
       "args": [
@@ -1608,78 +1765,6 @@
       ]
     },
     {
-      "name": "take_token_loan",
-      "discriminator": [221, 216, 127, 10, 107, 189, 152, 111],
-      "accounts": [
-        {
-          "name": "orderbook"
-        },
-        {
-          "name": "loan",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "pool",
-          "writable": true
-        },
-        {
-          "name": "usdc_vault",
-          "writable": true
-        },
-        {
-          "name": "collateral_vault",
-          "writable": true
-        },
-        {
-          "name": "borrower",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "borrower_usdc",
-          "writable": true
-        },
-        {
-          "name": "borrower_collateral",
-          "writable": true
-        },
-        {
-          "name": "fee_authority",
-          "writable": true
-        },
-        {
-          "name": "burn_wallet",
-          "writable": true
-        },
-        {
-          "name": "price_update"
-        },
-        {
-          "name": "loan_mint"
-        },
-        {
-          "name": "collateral_mint"
-        },
-        {
-          "name": "token_program"
-        },
-        {
-          "name": "system_program"
-        }
-      ],
-      "args": [
-        {
-          "name": "usdc_amount",
-          "type": "u64"
-        },
-        {
-          "name": "expected_loan",
-          "type": "string"
-        }
-      ]
-    },
-    {
       "name": "update_nft_list",
       "discriminator": [215, 13, 25, 187, 11, 93, 34, 143],
       "accounts": [
@@ -1689,7 +1774,8 @@
         },
         {
           "name": "payer",
-          "signer": true
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
         }
       ],
       "args": [
@@ -1716,7 +1802,8 @@
         },
         {
           "name": "payer",
-          "signer": true
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
         }
       ],
       "args": [
@@ -1774,7 +1861,18 @@
         },
         {
           "name": "program_version",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112, 114, 111, 103, 114, 97, 109, 95, 118, 101, 114, 115, 105,
+                  111, 110
+                ]
+              }
+            ]
+          }
         }
       ],
       "args": [
@@ -1783,117 +1881,6 @@
           "type": "u8"
         }
       ]
-    },
-    {
-      "name": "update_token_orderbook",
-      "discriminator": [19, 248, 131, 69, 150, 2, 41, 143],
-      "accounts": [
-        {
-          "name": "orderbook",
-          "writable": true
-        },
-        {
-          "name": "authority",
-          "signer": true
-        },
-        {
-          "name": "system_program"
-        }
-      ],
-      "args": [
-        {
-          "name": "duration",
-          "type": {
-            "option": "u64"
-          }
-        },
-        {
-          "name": "apr",
-          "type": {
-            "option": "u32"
-          }
-        },
-        {
-          "name": "fee_permillicentage",
-          "type": {
-            "option": "u16"
-          }
-        },
-        {
-          "name": "fee_authority",
-          "type": {
-            "option": "pubkey"
-          }
-        },
-        {
-          "name": "min_liquidity",
-          "type": {
-            "option": "u64"
-          }
-        },
-        {
-          "name": "max_liquidity",
-          "type": {
-            "option": "u64"
-          }
-        }
-      ]
-    },
-    {
-      "name": "update_token_pool",
-      "discriminator": [225, 28, 181, 13, 220, 64, 31, 102],
-      "accounts": [
-        {
-          "name": "orderbook"
-        },
-        {
-          "name": "pool",
-          "writable": true
-        },
-        {
-          "name": "lender",
-          "signer": true
-        }
-      ],
-      "args": [
-        {
-          "name": "new_required_collateral_amount",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "withdraw_liquidity_token_pool",
-      "discriminator": [55, 103, 20, 35, 39, 183, 180, 64],
-      "accounts": [
-        {
-          "name": "orderbook"
-        },
-        {
-          "name": "pool",
-          "writable": true
-        },
-        {
-          "name": "usdc_vault",
-          "writable": true
-        },
-        {
-          "name": "lender",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "lender_usdc",
-          "writable": true
-        },
-        {
-          "name": "loan_mint"
-        },
-        {
-          "name": "token_program"
-        }
-      ],
-      "args": []
     }
   ],
   "accounts": [
@@ -1914,24 +1901,8 @@
       "discriminator": [55, 230, 125, 218, 149, 39, 65, 248]
     },
     {
-      "name": "PriceUpdateV2",
-      "discriminator": [34, 241, 35, 99, 157, 126, 244, 205]
-    },
-    {
       "name": "ProgramVersion",
       "discriminator": [138, 104, 244, 197, 206, 47, 159, 154]
-    },
-    {
-      "name": "TokenLendingLoan",
-      "discriminator": [48, 250, 133, 85, 42, 11, 45, 154]
-    },
-    {
-      "name": "TokenLendingOrderBook",
-      "discriminator": [192, 71, 92, 163, 99, 85, 39, 27]
-    },
-    {
-      "name": "TokenLendingPool",
-      "discriminator": [33, 59, 13, 135, 153, 105, 127, 146]
     }
   ],
   "errors": [
@@ -2019,131 +1990,6 @@
       "code": 6016,
       "name": "EscrowValueMintTokenAccountEmpty",
       "msg": "Escrow value mint token account empty"
-    },
-    {
-      "code": 6017,
-      "name": "InvalidUsdcMint",
-      "msg": "Invalid USDC mint"
-    },
-    {
-      "code": 6018,
-      "name": "InvalidDuration",
-      "msg": "Invalid duration"
-    },
-    {
-      "code": 6019,
-      "name": "InvalidApr",
-      "msg": "Invalid APR"
-    },
-    {
-      "code": 6020,
-      "name": "InvalidLoanAmount",
-      "msg": "Invalid loan amount"
-    },
-    {
-      "code": 6021,
-      "name": "InvalidCollateralAmount",
-      "msg": "Invalid collateral amount"
-    },
-    {
-      "code": 6022,
-      "name": "InvalidLtv",
-      "msg": "Invalid LTV"
-    },
-    {
-      "code": 6023,
-      "name": "InvalidOrderBook",
-      "msg": "Invalid orderbook"
-    },
-    {
-      "code": 6024,
-      "name": "AlreadyBorrowed",
-      "msg": "Already borrowed"
-    },
-    {
-      "code": 6025,
-      "name": "InvalidCollateralMint",
-      "msg": "Invalid collateral mint"
-    },
-    {
-      "code": 6026,
-      "name": "InvalidLiquidity",
-      "msg": "Invalid liquidity"
-    },
-    {
-      "code": 6027,
-      "name": "PoolPaused",
-      "msg": "Pool is paused"
-    },
-    {
-      "code": 6028,
-      "name": "InvalidBump",
-      "msg": "Invalid bump"
-    },
-    {
-      "code": 6029,
-      "name": "InvalidPool",
-      "msg": "Invalid pool"
-    },
-    {
-      "code": 6030,
-      "name": "InvalidFeeAuthority",
-      "msg": "Invalid fee authority"
-    },
-    {
-      "code": 6031,
-      "name": "InvalidPriceAuthority",
-      "msg": "Invalid price authority"
-    },
-    {
-      "code": 6032,
-      "name": "InvalidPoolCount",
-      "msg": "Invalid pool count"
-    },
-    {
-      "code": 6033,
-      "name": "InvalidPoolVault",
-      "msg": "Invalid Pool Vault"
-    },
-    {
-      "code": 6034,
-      "name": "MathOverflow",
-      "msg": "Math overflow"
-    },
-    {
-      "code": 6035,
-      "name": "LoanNotExpired",
-      "msg": "Loan has not expired"
-    },
-    {
-      "code": 6036,
-      "name": "NoInterestToClaim",
-      "msg": "No interest to claim"
-    },
-    {
-      "code": 6037,
-      "name": "PoolHasActiveLoans",
-      "msg": "Pool still has active loans"
-    },
-    {
-      "code": 6038,
-      "name": "PoolVaultNotEmpty",
-      "msg": "Pool vault is not empty"
-    },
-    {
-      "code": 6039,
-      "name": "PoolStillActive",
-      "msg": "Pool still active"
-    },
-    {
-      "code": 6040,
-      "name": "InvalidUsdcVault",
-      "msg": "Invalid usdc vault"
-    },
-    {
-      "code": 6041,
-      "name": "InvalidCollateralVault",
-      "msg": "Invalid collateral vault"
     }
   ],
   "types": [
@@ -2463,109 +2309,6 @@
       }
     },
     {
-      "name": "PriceFeedMessage",
-      "repr": {
-        "kind": "c"
-      },
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "feed_id",
-            "docs": [
-              "`FeedId` but avoid the type alias because of compatibility issues with Anchor's `idl-build` feature."
-            ],
-            "type": {
-              "array": ["u8", 32]
-            }
-          },
-          {
-            "name": "price",
-            "type": "i64"
-          },
-          {
-            "name": "conf",
-            "type": "u64"
-          },
-          {
-            "name": "exponent",
-            "type": "i32"
-          },
-          {
-            "name": "publish_time",
-            "docs": ["The timestamp of this price update in seconds"],
-            "type": "i64"
-          },
-          {
-            "name": "prev_publish_time",
-            "docs": [
-              "The timestamp of the previous price update. This field is intended to allow users to",
-              "identify the single unique price update for any moment in time:",
-              "for any time t, the unique update is the one such that prev_publish_time < t <= publish_time.",
-              "",
-              "Note that there may not be such an update while we are migrating to the new message-sending logic,",
-              "as some price updates on pythnet may not be sent to other chains (because the message-sending",
-              "logic may not have triggered). We can solve this problem by making the message-sending mandatory",
-              "(which we can do once publishers have migrated over).",
-              "",
-              "Additionally, this field may be equal to publish_time if the message is sent on a slot where",
-              "where the aggregation was unsuccesful. This problem will go away once all publishers have",
-              "migrated over to a recent version of pyth-agent."
-            ],
-            "type": "i64"
-          },
-          {
-            "name": "ema_price",
-            "type": "i64"
-          },
-          {
-            "name": "ema_conf",
-            "type": "u64"
-          }
-        ]
-      }
-    },
-    {
-      "name": "PriceUpdateV2",
-      "docs": [
-        "A price update account. This account is used by the Pyth Receiver program to store a verified price update from a Pyth price feed.",
-        "It contains:",
-        "- `write_authority`: The write authority for this account. This authority can close this account to reclaim rent or update the account to contain a different price update.",
-        "- `verification_level`: The [`VerificationLevel`] of this price update. This represents how many Wormhole guardian signatures have been verified for this price update.",
-        "- `price_message`: The actual price update.",
-        "- `posted_slot`: The slot at which this price update was posted."
-      ],
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "write_authority",
-            "type": "pubkey"
-          },
-          {
-            "name": "verification_level",
-            "type": {
-              "defined": {
-                "name": "VerificationLevel"
-              }
-            }
-          },
-          {
-            "name": "price_message",
-            "type": {
-              "defined": {
-                "name": "PriceFeedMessage"
-              }
-            }
-          },
-          {
-            "name": "posted_slot",
-            "type": "u64"
-          }
-        ]
-      }
-    },
-    {
       "name": "ProgramVersion",
       "type": {
         "kind": "struct",
@@ -2629,209 +2372,6 @@
       }
     },
     {
-      "name": "TokenLendingLoan",
-      "serialization": "bytemuck",
-      "repr": {
-        "kind": "c"
-      },
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "orderbook",
-            "type": "pubkey"
-          },
-          {
-            "name": "borrower",
-            "type": "pubkey"
-          },
-          {
-            "name": "pool",
-            "type": "pubkey"
-          },
-          {
-            "name": "principal_usdc_amount",
-            "type": "u64"
-          },
-          {
-            "name": "collateral_required_amount",
-            "type": "u64"
-          },
-          {
-            "name": "start_ts",
-            "type": "i64"
-          },
-          {
-            "name": "end_ts",
-            "type": "i64"
-          },
-          {
-            "name": "apr",
-            "type": "u32"
-          },
-          {
-            "name": "version",
-            "type": "u8"
-          },
-          {
-            "name": "padding",
-            "type": {
-              "array": ["u8", 3]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "name": "TokenLendingOrderBook",
-      "docs": ["Token Lending States"],
-      "serialization": "bytemuck",
-      "repr": {
-        "kind": "c"
-      },
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "fee_authority",
-            "type": "pubkey"
-          },
-          {
-            "name": "loan_mint",
-            "type": "pubkey"
-          },
-          {
-            "name": "collateral_mint",
-            "type": "pubkey"
-          },
-          {
-            "name": "collateral_token_program",
-            "type": "pubkey"
-          },
-          {
-            "name": "duration",
-            "type": "u64"
-          },
-          {
-            "name": "min_liquidity",
-            "type": "u64"
-          },
-          {
-            "name": "max_liquidity",
-            "type": "u64"
-          },
-          {
-            "name": "apr",
-            "type": "u32"
-          },
-          {
-            "name": "fee_permillicentage",
-            "type": "u16"
-          },
-          {
-            "name": "collateral_decimals",
-            "type": "u8"
-          },
-          {
-            "name": "version",
-            "type": "u8"
-          },
-          {
-            "name": "bump",
-            "type": "u8"
-          },
-          {
-            "name": "padding",
-            "type": {
-              "array": ["u8", 7]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "name": "TokenLendingPool",
-      "serialization": "bytemuck",
-      "repr": {
-        "kind": "c"
-      },
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "orderbook",
-            "type": "pubkey"
-          },
-          {
-            "name": "lender",
-            "type": "pubkey"
-          },
-          {
-            "name": "usdc_vault",
-            "type": "pubkey"
-          },
-          {
-            "name": "collateral_vault",
-            "type": "pubkey"
-          },
-          {
-            "name": "nonce",
-            "type": "u64"
-          },
-          {
-            "name": "total_usdc_liquidity",
-            "type": "u64"
-          },
-          {
-            "name": "available_usdc_liquidity",
-            "type": "u64"
-          },
-          {
-            "name": "collateral_required_amount",
-            "type": "u64"
-          },
-          {
-            "name": "total_usdc_interest",
-            "type": "u64"
-          },
-          {
-            "name": "total_loan_count",
-            "type": "u64"
-          },
-          {
-            "name": "active_loan_count",
-            "type": "u64"
-          },
-          {
-            "name": "total_defaulted_loan_count",
-            "type": "u64"
-          },
-          {
-            "name": "total_defaulted_usdc_amount",
-            "type": "u64"
-          },
-          {
-            "name": "total_defaulted_collateral_amount",
-            "type": "u64"
-          },
-          {
-            "name": "version",
-            "type": "u8"
-          },
-          {
-            "name": "bump",
-            "type": "u8"
-          },
-          {
-            "name": "padding",
-            "type": {
-              "array": ["u8", 6]
-            }
-          }
-        ]
-      }
-    },
-    {
       "name": "UpdateIndex",
       "type": {
         "kind": "struct",
@@ -2843,39 +2383,6 @@
           {
             "name": "mint",
             "type": "pubkey"
-          }
-        ]
-      }
-    },
-    {
-      "name": "VerificationLevel",
-      "docs": [
-        "Pyth price updates are bridged to all blockchains via Wormhole.",
-        "Using the price updates on another chain requires verifying the signatures of the Wormhole guardians.",
-        "The usual process is to check the signatures for two thirds of the total number of guardians, but this can be cumbersome on Solana because of the transaction size limits,",
-        "so we also allow for partial verification.",
-        "",
-        "This enum represents how much a price update has been verified:",
-        "- If `Full`, we have verified the signatures for two thirds of the current guardians.",
-        "- If `Partial`, only `num_signatures` guardian signatures have been checked.",
-        "",
-        "# Warning",
-        "Using partially verified price updates is dangerous, as it lowers the threshold of guardians that need to collude to produce a malicious price update."
-      ],
-      "type": {
-        "kind": "enum",
-        "variants": [
-          {
-            "name": "Partial",
-            "fields": [
-              {
-                "name": "num_signatures",
-                "type": "u8"
-              }
-            ]
-          },
-          {
-            "name": "Full"
           }
         ]
       }

@@ -1,0 +1,1807 @@
+{
+  "address": "SharkXwkS3h24fJ2LZvgG5tPbsH3BKQYuAtKdqskf1f",
+  "metadata": {
+    "name": "sharky",
+    "version": "6.4.0",
+    "spec": "0.1.0",
+    "description": "Sharky Program"
+  },
+  "instructions": [
+    {
+      "name": "close_nft_list",
+      "discriminator": [35, 8, 121, 82, 218, 78, 252, 162],
+      "accounts": [
+        {
+          "name": "nft_list",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "close_order_book",
+      "docs": ["Closes an order book, must be signed by sharky key"],
+      "discriminator": [219, 134, 73, 219, 180, 7, 94, 206],
+      "accounts": [
+        {
+          "name": "order_book",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_nft_list",
+      "discriminator": [243, 38, 198, 76, 172, 64, 127, 24],
+      "accounts": [
+        {
+          "name": "nft_list",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
+        }
+      ],
+      "args": [
+        {
+          "name": "collection_name",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "create_order_book",
+      "docs": ["Creates an order book, must be signed by sharky key"],
+      "discriminator": [153, 114, 9, 51, 100, 68, 240, 197],
+      "accounts": [
+        {
+          "name": "order_book",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "order_book_type",
+          "type": {
+            "defined": {
+              "name": "OrderBookType"
+            }
+          }
+        },
+        {
+          "name": "apy",
+          "type": {
+            "defined": {
+              "name": "APY"
+            }
+          }
+        },
+        {
+          "name": "loan_terms",
+          "type": {
+            "defined": {
+              "name": "BookLoanTerms"
+            }
+          }
+        },
+        {
+          "name": "fee_permillicentage",
+          "type": "u16"
+        },
+        {
+          "name": "fee_authority",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "create_program_version",
+      "discriminator": [103, 216, 0, 238, 92, 107, 219, 121],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "program_version",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112, 114, 111, 103, 114, 97, 109, 95, 118, 101, 114, 115, 105,
+                  111, 110
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "version",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "extend_loan_v3",
+      "discriminator": [71, 27, 17, 131, 78, 73, 62, 92],
+      "accounts": [
+        {
+          "name": "loan",
+          "writable": true
+        },
+        {
+          "name": "new_loan",
+          "writable": true
+        },
+        {
+          "name": "borrower",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "borrower_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "lender",
+          "writable": true
+        },
+        {
+          "name": "new_lender",
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "new_escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "new_loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "new_escrow_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "value_mint"
+        },
+        {
+          "name": "collateral_mint"
+        },
+        {
+          "name": "order_book"
+        },
+        {
+          "name": "fee_authority",
+          "writable": true
+        },
+        {
+          "name": "metadata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 101, 116, 97, 100, 97, 116, 97]
+              },
+              {
+                "kind": "account",
+                "path": "mpl_token_metadata_program"
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "mpl_token_metadata_program"
+            }
+          }
+        },
+        {
+          "name": "edition",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "mpl_token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        }
+      ],
+      "args": [
+        {
+          "name": "expected_loan",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "extend_loan_v3_compressed",
+      "docs": ["Extend a loan with a new loan (cNFT)"],
+      "discriminator": [148, 161, 75, 87, 138, 34, 131, 62],
+      "accounts": [
+        {
+          "name": "loan",
+          "writable": true
+        },
+        {
+          "name": "new_loan",
+          "writable": true
+        },
+        {
+          "name": "borrower",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "lender",
+          "writable": true
+        },
+        {
+          "name": "new_lender",
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "new_escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "new_loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "value_mint"
+        },
+        {
+          "name": "order_book"
+        },
+        {
+          "name": "fee_authority",
+          "writable": true
+        },
+        {
+          "name": "tree_authority"
+        },
+        {
+          "name": "log_wrapper"
+        },
+        {
+          "name": "merkle_tree",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "mpl_bubblegum_program"
+        },
+        {
+          "name": "compression_program"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "expected_loan",
+          "type": "string"
+        },
+        {
+          "name": "cnft_root",
+          "type": {
+            "array": ["u8", 32]
+          }
+        },
+        {
+          "name": "cnft_data_hash",
+          "type": {
+            "array": ["u8", 32]
+          }
+        },
+        {
+          "name": "cnft_creator_hash",
+          "type": {
+            "array": ["u8", 32]
+          }
+        },
+        {
+          "name": "cnft_nonce",
+          "type": "u64"
+        },
+        {
+          "name": "cnft_index",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "foreclose_loan_v3",
+      "docs": ["Forecloses on a taken lone that has met some condition"],
+      "discriminator": [136, 184, 50, 58, 183, 92, 63, 216],
+      "accounts": [
+        {
+          "name": "loan",
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "collateral_mint",
+          "writable": true
+        },
+        {
+          "name": "borrower",
+          "writable": true
+        },
+        {
+          "name": "lender",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "lender_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "borrower_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "metadata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 101, 116, 97, 100, 97, 116, 97]
+              },
+              {
+                "kind": "account",
+                "path": "mpl_token_metadata_program"
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "mpl_token_metadata_program"
+            }
+          }
+        },
+        {
+          "name": "edition",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "mpl_token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "foreclose_loan_v3_compressed",
+      "docs": ["Forecloses on a taken lone that has met some condition (cNFT)"],
+      "discriminator": [194, 193, 5, 193, 115, 133, 231, 197],
+      "accounts": [
+        {
+          "name": "loan",
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "borrower",
+          "writable": true
+        },
+        {
+          "name": "lender",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "tree_authority"
+        },
+        {
+          "name": "log_wrapper"
+        },
+        {
+          "name": "merkle_tree",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "mpl_bubblegum_program"
+        },
+        {
+          "name": "compression_program"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "cnft_root",
+          "type": {
+            "array": ["u8", 32]
+          }
+        },
+        {
+          "name": "cnft_data_hash",
+          "type": {
+            "array": ["u8", 32]
+          }
+        },
+        {
+          "name": "cnft_creator_hash",
+          "type": {
+            "array": ["u8", 32]
+          }
+        },
+        {
+          "name": "cnft_nonce",
+          "type": "u64"
+        },
+        {
+          "name": "cnft_index",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "offer_loan",
+      "docs": ["Offers a loan for a given order book"],
+      "discriminator": [44, 12, 76, 144, 210, 208, 239, 85],
+      "accounts": [
+        {
+          "name": "lender",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "lender_value_token_account",
+          "writable": true
+        },
+        {
+          "name": "value_mint"
+        },
+        {
+          "name": "loan",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "order_book"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "escrow_bump",
+          "type": "u8"
+        },
+        {
+          "name": "principal_lamports",
+          "type": "u64"
+        },
+        {
+          "name": "terms_choice",
+          "type": {
+            "option": {
+              "defined": {
+                "name": "LoanTermsSpec"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "repay_loan_v3",
+      "docs": ["Repays a given loan in exchange for the NFT"],
+      "discriminator": [97, 123, 85, 54, 76, 16, 61, 157],
+      "accounts": [
+        {
+          "name": "loan",
+          "writable": true
+        },
+        {
+          "name": "borrower",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "borrower_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "lender",
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "value_mint"
+        },
+        {
+          "name": "collateral_mint",
+          "writable": true
+        },
+        {
+          "name": "order_book"
+        },
+        {
+          "name": "fee_authority",
+          "writable": true
+        },
+        {
+          "name": "metadata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 101, 116, 97, 100, 97, 116, 97]
+              },
+              {
+                "kind": "account",
+                "path": "mpl_token_metadata_program"
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "mpl_token_metadata_program"
+            }
+          }
+        },
+        {
+          "name": "edition",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "mpl_token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "repay_loan_v3_compressed",
+      "docs": ["Repays a given loan in exchange for the NFT (cNFT)"],
+      "discriminator": [159, 159, 245, 168, 191, 154, 100, 6],
+      "accounts": [
+        {
+          "name": "loan",
+          "writable": true
+        },
+        {
+          "name": "borrower",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "lender",
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "value_mint"
+        },
+        {
+          "name": "order_book"
+        },
+        {
+          "name": "fee_authority",
+          "writable": true
+        },
+        {
+          "name": "tree_authority"
+        },
+        {
+          "name": "log_wrapper"
+        },
+        {
+          "name": "merkle_tree",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "mpl_bubblegum_program"
+        },
+        {
+          "name": "compression_program"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "cnft_root",
+          "type": {
+            "array": ["u8", 32]
+          }
+        },
+        {
+          "name": "cnft_data_hash",
+          "type": {
+            "array": ["u8", 32]
+          }
+        },
+        {
+          "name": "cnft_creator_hash",
+          "type": {
+            "array": ["u8", 32]
+          }
+        },
+        {
+          "name": "cnft_nonce",
+          "type": "u64"
+        },
+        {
+          "name": "cnft_index",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "rescind_loan",
+      "docs": ["Removes an offered but not taken loan"],
+      "discriminator": [64, 64, 160, 211, 51, 36, 177, 158],
+      "accounts": [
+        {
+          "name": "loan",
+          "writable": true
+        },
+        {
+          "name": "lender_value_token_account",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "lender",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "value_mint"
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "take_loan_v3",
+      "docs": [
+        "Takes an offered loan in exchange for a valid NFT (migration off cardinal)"
+      ],
+      "discriminator": [255, 115, 220, 58, 26, 157, 112, 185],
+      "accounts": [
+        {
+          "name": "lender",
+          "writable": true
+        },
+        {
+          "name": "borrower",
+          "docs": [
+            "The borrower that will receive the tokens in exchange for collateral"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "borrower_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "collateral_mint",
+          "docs": ["type of token"],
+          "writable": true
+        },
+        {
+          "name": "loan",
+          "docs": [
+            "Expected loan prevents a replacement attack where the loan is replaced between the",
+            "user signing take_loan and it hitting the chain"
+          ],
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_collateral_token_account",
+          "writable": true
+        },
+        {
+          "name": "order_book"
+        },
+        {
+          "name": "metadata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 101, 116, 97, 100, 97, 116, 97]
+              },
+              {
+                "kind": "account",
+                "path": "mpl_token_metadata_program"
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "mpl_token_metadata_program"
+            }
+          }
+        },
+        {
+          "name": "edition",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "mpl_token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        }
+      ],
+      "args": [
+        {
+          "name": "expected_loan",
+          "type": "string"
+        },
+        {
+          "name": "nft_list_index",
+          "type": {
+            "option": "u32"
+          }
+        },
+        {
+          "name": "skip_freezing_collateral",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "take_loan_v3_compressed",
+      "docs": ["Takes an offered loan in exchange for a valid NFT (cNFT)"],
+      "discriminator": [241, 114, 106, 79, 16, 89, 233, 125],
+      "accounts": [
+        {
+          "name": "lender",
+          "writable": true
+        },
+        {
+          "name": "borrower",
+          "docs": [
+            "The borrower that will receive the tokens in exchange for collateral"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "loan",
+          "docs": [
+            "Expected loan prevents a replacement attack where the loan is replaced between the",
+            "user signing take_loan and it hitting the chain"
+          ],
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 111, 97, 110, 95, 115, 105, 103, 110, 101, 114]
+              },
+              {
+                "kind": "account",
+                "path": "loan"
+              }
+            ]
+          }
+        },
+        {
+          "name": "order_book"
+        },
+        {
+          "name": "collateral_mint"
+        },
+        {
+          "name": "tree_authority"
+        },
+        {
+          "name": "log_wrapper"
+        },
+        {
+          "name": "merkle_tree",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "mpl_bubblegum_program"
+        },
+        {
+          "name": "compression_program"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "expected_loan",
+          "type": "string"
+        },
+        {
+          "name": "nft_list_index",
+          "type": {
+            "option": "u32"
+          }
+        },
+        {
+          "name": "cnft_args",
+          "type": {
+            "defined": {
+              "name": "CnftArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_nft_list",
+      "discriminator": [215, 13, 25, 187, 11, 93, 34, 143],
+      "accounts": [
+        {
+          "name": "nft_list",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
+        }
+      ],
+      "args": [
+        {
+          "name": "mints",
+          "type": {
+            "vec": {
+              "defined": {
+                "name": "UpdateIndex"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_order_book",
+      "docs": ["Updates an order book, must be signed by sharky key"],
+      "discriminator": [31, 72, 159, 232, 220, 153, 90, 109],
+      "accounts": [
+        {
+          "name": "order_book",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "signer": true,
+          "address": "SharkVod36ARQy4njEGktY1hbMpxNy73yVngqDcxcsi"
+        }
+      ],
+      "args": [
+        {
+          "name": "order_book_type",
+          "type": {
+            "option": {
+              "defined": {
+                "name": "OrderBookType"
+              }
+            }
+          }
+        },
+        {
+          "name": "apy",
+          "type": {
+            "option": {
+              "defined": {
+                "name": "APY"
+              }
+            }
+          }
+        },
+        {
+          "name": "loan_terms",
+          "type": {
+            "option": {
+              "defined": {
+                "name": "BookLoanTerms"
+              }
+            }
+          }
+        },
+        {
+          "name": "fee_permillicentage",
+          "type": {
+            "option": "u16"
+          }
+        },
+        {
+          "name": "fee_authority",
+          "type": {
+            "option": "pubkey"
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_program_version",
+      "discriminator": [235, 132, 215, 225, 213, 43, 43, 38],
+      "accounts": [
+        {
+          "name": "authority",
+          "signer": true
+        },
+        {
+          "name": "program_version",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112, 114, 111, 103, 114, 97, 109, 95, 118, 101, 114, 115, 105,
+                  111, 110
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "version",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "EscrowPDA",
+      "discriminator": [109, 117, 137, 181, 64, 48, 65, 235]
+    },
+    {
+      "name": "Loan",
+      "discriminator": [20, 195, 70, 117, 165, 227, 182, 1]
+    },
+    {
+      "name": "NFTList",
+      "discriminator": [46, 244, 104, 226, 152, 35, 170, 239]
+    },
+    {
+      "name": "OrderBook",
+      "discriminator": [55, 230, 125, 218, 149, 39, 65, 248]
+    },
+    {
+      "name": "ProgramVersion",
+      "discriminator": [138, 104, 244, 197, 206, 47, 159, 154]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Custom",
+      "msg": "Custom"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidArgument",
+      "msg": "InvalidArgument"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidAccountData",
+      "msg": "InvalidAccountData"
+    },
+    {
+      "code": 6003,
+      "name": "IllegalOwner",
+      "msg": "IllegalOwner"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidMint",
+      "msg": "Mint is invalid"
+    },
+    {
+      "code": 6005,
+      "name": "NumericalOverflowError",
+      "msg": "Numerical overflow error"
+    },
+    {
+      "code": 6006,
+      "name": "MismatchedNftCollateralMint",
+      "msg": "Mismatched NFT collateral mint"
+    },
+    {
+      "code": 6007,
+      "name": "MismatchedValueTokenMint",
+      "msg": "Mismatched value token mint"
+    },
+    {
+      "code": 6008,
+      "name": "MismatchedLender",
+      "msg": "Mismatched lender"
+    },
+    {
+      "code": 6009,
+      "name": "NotForeclosable",
+      "msg": "Loan is not foreclosable"
+    },
+    {
+      "code": 6010,
+      "name": "FeeCalculationError",
+      "msg": "Fee calculation error"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidBookLoanTermsType",
+      "msg": "Invalid book loan terms type"
+    },
+    {
+      "code": 6012,
+      "name": "InvalidEscrowBump",
+      "msg": "Invalid escrow bump"
+    },
+    {
+      "code": 6013,
+      "name": "InvalidLoanVersion",
+      "msg": "Invalid loan version"
+    },
+    {
+      "code": 6014,
+      "name": "InvalidValueMint",
+      "msg": "Value mint only supports native mint"
+    },
+    {
+      "code": 6015,
+      "name": "OfferedLoanCannotBeForeclosed",
+      "msg": "Offered loan cannot be foreclosed"
+    }
+  ],
+  "types": [
+    {
+      "name": "APY",
+      "docs": ["APY settings on an [`OrderBook`]"],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Fixed",
+            "fields": [
+              {
+                "name": "apy",
+                "docs": ["Thousandths of a percent"],
+                "type": "u32"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "BookLoanTerms",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Fixed",
+            "fields": [
+              {
+                "name": "terms",
+                "type": {
+                  "defined": {
+                    "name": "LoanTermsSpec"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "LenderChooses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CnftArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "cnft_root",
+            "type": {
+              "array": ["u8", 32]
+            }
+          },
+          {
+            "name": "cnft_data_hash",
+            "type": {
+              "array": ["u8", 32]
+            }
+          },
+          {
+            "name": "cnft_creator_hash",
+            "type": {
+              "array": ["u8", 32]
+            }
+          },
+          {
+            "name": "cnft_nonce",
+            "type": "u64"
+          },
+          {
+            "name": "cnft_index",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EscrowPDA",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Loan",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "principal_lamports",
+            "docs": ["amount in tokens, decimals included"],
+            "type": "u64"
+          },
+          {
+            "name": "order_book",
+            "type": "pubkey"
+          },
+          {
+            "name": "value_token_mint",
+            "docs": ["Token mint for what the loan is in (spl address)"],
+            "type": "pubkey"
+          },
+          {
+            "name": "escrow_bump_seed",
+            "type": "u8"
+          },
+          {
+            "name": "loan_state",
+            "docs": ["stores start and duration"],
+            "type": {
+              "defined": {
+                "name": "LoanState"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "LoanOffer",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "lender_wallet",
+            "type": "pubkey"
+          },
+          {
+            "name": "terms_spec",
+            "type": {
+              "defined": {
+                "name": "LoanTermsSpec"
+              }
+            }
+          },
+          {
+            "name": "offer_time",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "LoanState",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Offer",
+            "fields": [
+              {
+                "name": "offer",
+                "type": {
+                  "defined": {
+                    "name": "LoanOffer"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "Taken",
+            "fields": [
+              {
+                "name": "taken",
+                "type": {
+                  "defined": {
+                    "name": "TakenLoan"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "LoanTerms",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Time",
+            "fields": [
+              {
+                "name": "start",
+                "docs": ["This is a [`UnixTimeStamp`]"],
+                "type": "i64"
+              },
+              {
+                "name": "duration",
+                "type": "u64"
+              },
+              {
+                "name": "total_owed_lamports",
+                "type": "u64"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "LoanTermsSpec",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Time",
+            "fields": [
+              {
+                "name": "duration",
+                "type": "u64"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "NFTList",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "collection_name",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OrderBook",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "order_book_type",
+            "type": {
+              "defined": {
+                "name": "OrderBookType"
+              }
+            }
+          },
+          {
+            "name": "apy",
+            "type": {
+              "defined": {
+                "name": "APY"
+              }
+            }
+          },
+          {
+            "name": "loan_terms",
+            "type": {
+              "defined": {
+                "name": "BookLoanTerms"
+              }
+            }
+          },
+          {
+            "name": "fee_permillicentage",
+            "type": "u16"
+          },
+          {
+            "name": "fee_authority",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OrderBookType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Collection",
+            "fields": [
+              {
+                "name": "collection_key",
+                "type": "pubkey"
+              }
+            ]
+          },
+          {
+            "name": "NFTList",
+            "fields": [
+              {
+                "name": "list_account",
+                "type": "pubkey"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProgramVersion",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "updated",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TakenLoan",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "nft_collateral_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "lender_note_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "borrower_note_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "apy",
+            "docs": [
+              "Thousandths of a percent (allows to have 3 decimal points of precision)"
+            ],
+            "type": {
+              "defined": {
+                "name": "APY"
+              }
+            }
+          },
+          {
+            "name": "terms",
+            "type": {
+              "defined": {
+                "name": "LoanTerms"
+              }
+            }
+          },
+          {
+            "name": "is_collateral_frozen",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateIndex",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "index",
+            "type": "u32"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { AnchorProvider } from '@project-serum/anchor'
+import { AnchorProvider } from '@coral-xyz/anchor'
 
 // This assembles an Anchor Provider using NodeWallet.
 // In the frontend, you can use @sharkyfi/client's createProvider, using a wallet from a WalletProvider
